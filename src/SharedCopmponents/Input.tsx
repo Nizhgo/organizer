@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Inputs = styled.input`
+const Input = styled.input`
   //margin: auto;
   font-family: 'Raleway', sans-serif;
   font-weight: 800;
@@ -10,27 +10,27 @@ const Inputs = styled.input`
   width: auto;
   line-height: 24px;
   background-color: #ffffff;
-  border-radius: 8px;
+  border-radius: 4px;
   padding: 2px 12px;
   cursor: auto;
   color: #0a0a0a;
-  border: 1px solid #8C8C8CFF;
+  border: 1px solid #c7c6c6;
 `
 
 const TextArea = styled.textarea`
   font-family: 'Raleway', sans-serif;
   font-weight: 700;
-  border: 1px solid #8C8C8CFF;
+  border: 1px solid #C7C6C6FF;
   padding: 2px 12px;
   box-sizing: border-box;
   background-color: #ffffff;
   font-size: 14px;
   width: 100%;
-  resize: none;
   height: 86px;
+  resize: none;
   color: #000000;
-  border-radius: 8px;
-  line-height: 31px;
+  border-radius: 4px;
+  line-height: 24px;
 
   :active, :hover, :focus {
     outline: 0;
@@ -38,4 +38,4 @@ const TextArea = styled.textarea`
   }
 `
 
-export {Inputs, TextArea};
+export {Input, TextArea};

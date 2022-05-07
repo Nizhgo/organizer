@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useState} from "react";
 import Card from "../SharedCopmponents/Card";
-import {Inputs, TextArea} from '../SharedCopmponents/Inputs'
+import {Input, TextArea} from '../SharedCopmponents/Input'
 import styled from "styled-components";
 import {AddElementBtn} from "../SharedCopmponents/Buttons";
 import {DateContext} from "../App";
@@ -29,11 +29,11 @@ const AddElement = () =>
             <form onSubmit={onSubmit}>
             <AddElementContainer>
                 <AddElementTitle>Добавление нового дела</AddElementTitle>
-                <Inputs required={true} placeholder={'Заголовок'} value={titleText}
-                        onChange={e => setTitleText(e.target.value)}/>
+                <Input required={true} placeholder={'Заголовок'} value={titleText}
+                       onChange={e => setTitleText(e.target.value)}/>
                 <TextArea placeholder={'Текст'} value={bodyText}
                           onChange={e => setBodyText(e.target.value)}/>
-                <AddElementBtn type={'submit'}>Добавить</AddElementBtn>
+                <AddElementBtn type={'button'} onClick={onSubmit}>Добавить</AddElementBtn>
             </AddElementContainer>
                 </form>
         </Card>

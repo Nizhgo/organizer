@@ -5,10 +5,12 @@ import AddElement from "./AddElement";
 import {AddElementBtn, SmallButton} from "../SharedCopmponents/Buttons";
 import {DateContext} from "../App";
 import DailyTaskCard from "./DailyTaskCard";
+import {AuthContext} from "../Auth/AuthContext";
 
 
 const RightPanel = () =>
 {
+    const {isAuth} = useContext(AuthContext);
     const {selectedDay} = useContext(DateContext);
     const [isAddingNewElement, setIsAddingNewElement] = useState<boolean>(false);
     const [toDoList, setToDoList] = useState<any>('');
@@ -32,7 +34,7 @@ const RightPanel = () =>
             return promiseResult.text()
         })
             .then(responseResult => {setToDoList(JSON.parse(responseResult))})
-    }, [selectedDay]);
+    }, );
     const day = selectedDay.toLocaleString('ru', {
         day: 'numeric'
     })
@@ -56,16 +58,16 @@ const RightPanel = () =>
                             })}
                         </>
                         : <>
-                        <div style={{height:'2em'}}/>
-                        <p>на этот день нет никаких дел!😊</p>
+                        <p style={{marginTop:'2em'}}>на этот день нет никаких дел!😊</p>
                     </>
                 }
-                {
+                {isAuth && (
                     isAddingNewElement ?
                         <AddElement/>
                         :
-                            <AddElementBtn onClick={() =>setIsAddingNewElement(prev => !prev)}>Добавить</AddElementBtn>
-                }
+                        <AddElementBtn onClick={() =>setIsAddingNewElement(prev => !prev)}>Добавить</AddElementBtn>
+                )
+                    }
         </RightPanelContainer>
 
     )

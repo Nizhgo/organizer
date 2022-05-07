@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import getWeekDay from "../WeekDayTitle";
 
@@ -34,7 +34,7 @@ const DayElementContainer = styled.div<ISelected>`
   border-radius: 12px;
   background: ${(props) => (props.isSelected ? 'rgba(208, 172, 172, 0.1);' : 'transparent')};
   scale: ${(props) => (props.isSelected ? '1.15' : 'none')};
-  transition: all 1s ease-in-out;
+  transition: all 0.2s ease-in-out;
   pointer-events: stroke;
 `
 const DayElementLine = styled.line`

@@ -2,16 +2,17 @@
 
 @font-face {
     font-family: 'Lineatura';
-    src: url('Fonts/Lineatura.ttf'), url('Fonts/Lineatura.ttf') format('truetype'), url('Fonts/Lineatura.ttf') format('svg');
+    src: url('Fonts/Lineatura.eot');
+    src: url('Fonts/Lineatura.eot?#iefix') format('embedded-opentype'),
+    url('Fonts/Lineatura.woff') format('woff'),
+    url('Fonts/Lineatura.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
-
-
 body {
     margin: 0;
-    font-family: Lineatura, sans-serif;
+    font-family: Lineatura;
     background: #FEFEFE;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
