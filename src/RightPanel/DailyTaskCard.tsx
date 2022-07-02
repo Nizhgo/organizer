@@ -4,7 +4,7 @@ import styled from "styled-components";
 import EditIcon from '../Images/edit_FILL0_wght400_GRAD0_opsz40.svg'
 import DeleteIcon from '../Images/delete_forever_FILL0_wght400_GRAD0_opsz40.svg'
 import {Input, TextArea} from "../SharedCopmponents/Input";
-import {ITask, OrganizerContext} from "../Auth/OrganizerContext";
+import {ITask, OrganizerContext} from "../Providers/OrganizerContext";
 const DailyTaskCard = (props: ITask) =>
 {
     const {DeleteTask, UpdateTask} = useContext(OrganizerContext);

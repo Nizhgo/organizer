@@ -1,33 +1,29 @@
-import React, {createContext, useState} from 'react';
+import React, {createContext, useContext, useState} from 'react';
 import BodyContainer from './SharedCopmponents/BodyContainer';
 import Header from "./Header/Header";
 import styled from "styled-components";
 import Calendar from "./Calendar/Calendar";
 import RightPanel from "./RightPanel/RightPanel";
-import {OrganizerProvider} from "./Auth/OrganizerContext";
-
-export const DateContext = createContext<any>(new Date());
+import {DateContext} from "./Providers/DataContext";
+import MonthInTheGenitiveCase from "./Scripts/MonthInTheGenitiveCase";
 
 function App() {
-    const [selectedDay, setSelectedDay] = useState(new Date());
-    const nowDate = new Date();
+const {nowDate} = useContext(DateContext);
   return (
-      <OrganizerProvider>
-      <DateContext.Provider value={{selectedDay, setSelectedDay, nowDate}}>
-              <AppWrapper>
-                  <BodyContainer>
-                      <Header/>
-                      <MonthTitle>{nowDate.toLocaleString('ru', {
-                          month: 'long'
-                      })}, {
-                          nowDate.getFullYear()
-                      }</MonthTitle>
-                      <Calendar/>
-                  </BodyContainer>
-                    <RightPanel/>
-              </AppWrapper>
-      </DateContext.Provider>
-      </OrganizerProvider>
+          <AppWrapper>
+              <AppContainer>
+                  <AppContent>
+                      <BodyContainer>
+                          <Header/>
+                          <MonthTitle>{MonthInTheGenitiveCase(nowDate)}, {
+                              nowDate.getFullYear()
+                          }</MonthTitle>
+                          <Calendar/>
+                      </BodyContainer>
+                      <RightPanel/>
+                  </AppContent>
+              </AppContainer>
+            </AppWrapper>
   );
 }
 
@@ -40,7 +36,31 @@ const MonthTitle = styled.h2`
   margin-top: 1em;
 `
 
-const AppWrapper = styled.div`
+const AppContent = styled.div`
   display: grid;
-  grid-template-columns: 1fr 359px;
+  grid-template-columns: 8fr 2.5fr;
+  
+    @media (max-width: 968px) {
+        grid-template-columns: 1fr;
+    }
 `
+
+const AppContainer = styled.div`
+  margin-top: 1em;
+  border-radius: 8px;
+  background: #FDFDFD;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+    @media (max-width: 968px) {
+        margin-top: 0;
+    }
+  `
+
+const AppWrapper = styled.div`
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    `

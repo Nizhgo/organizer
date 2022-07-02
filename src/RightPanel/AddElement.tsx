@@ -3,8 +3,8 @@ import Card from "../SharedCopmponents/Card";
 import {Input, TextArea} from '../SharedCopmponents/Input'
 import styled from "styled-components";
 import {AddElementBtn} from "../SharedCopmponents/Buttons";
-import {DateContext} from "../App";
-import {ITask, OrganizerContext} from "../Auth/OrganizerContext";
+import {DateContext} from "../Providers/DataContext";
+import {ITask, OrganizerContext} from "../Providers/OrganizerContext";
 import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 
 const AddElement = () =>

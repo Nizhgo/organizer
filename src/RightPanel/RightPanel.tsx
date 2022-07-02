@@ -1,12 +1,13 @@
 import React, {useContext, useEffect, useState} from "react";
 import styled from "styled-components";
-import getWeekDay from "../Scripts/WeekDayTitle";
+import {getWeekDay} from "../Scripts/WeekDayTitle";
 import AddElement from "./AddElement";
-import {AddElementBtn, SmallButton} from "../SharedCopmponents/Buttons";
-import {DateContext} from "../App";
+import {AddElementBtn} from "../SharedCopmponents/Buttons";
 import DailyTaskCard from "./DailyTaskCard";
-import {OrganizerContext} from "../Auth/OrganizerContext";
-import {ITask} from "../Auth/OrganizerContext";
+import {OrganizerContext} from "../Providers/OrganizerContext";
+import {ITask} from "../Providers/OrganizerContext";
+import {DateContext} from "../Providers/DataContext";
+import MonthInTheGenitiveCase from "../Scripts/MonthInTheGenitiveCase";
 
 
 const RightPanel = () =>
@@ -24,9 +25,7 @@ const RightPanel = () =>
     const day = selectedDay.toLocaleString('ru', {
         day: 'numeric'
     })
-    const month = selectedDay.toLocaleString('ru', {
-        month: 'long'
-    }).slice(0, -1) + 'я';
+    const month = MonthInTheGenitiveCase(selectedDay);
 
     useEffect(() =>
     {
@@ -66,25 +65,16 @@ const RightPanel = () =>
 }
 
 const RightPanelContainer = styled.div`
+  position: center;
   overflow-y:auto;
   padding: 1em;
-  position: fixed;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  right: 0;
   height: 100%;
-  max-width: 359px;
   width: 100%;
-  background: white;
   border-left: 3px solid #E1E1E1;
   
-    @media (max-width: 1100px) {
-    max-width: 300px;
-    }
-  
-    @media (max-width: 1000px) {
-    max-width: 250px;
-    }
 `
 const DayTitle = styled.p`
   margin-top: 1em;

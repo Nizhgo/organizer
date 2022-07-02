@@ -6,7 +6,7 @@ interface IGetArrayOfDaysForMonths{
 }
 const GetArrayOfDaysForMonths = (props?: IGetArrayOfDaysForMonths) =>
 {
-    const nowDate = new Date(new Date().getFullYear(), new Date().getMonth() + 6, 1);
+    const nowDate = new Date(new Date().getFullYear(), new Date().getMonth(), 1);
     const firstDayOfMonth = new Date(nowDate.getFullYear(), nowDate.getMonth(), 1);
     const lastDayOfMonth = new Date(nowDate.getFullYear(), nowDate.getMonth() + 1, 0);
     const firstDayOfWeek = firstDayOfMonth.getDay();

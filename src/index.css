@@ -12,8 +12,8 @@
 
 body {
     margin: 0;
-    font-family: Lineatura;
-    background: #FEFEFE;
+    font-family: Lineatura, sans-serif;
+    background: #D2D2D2;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
