@@ -5,7 +5,7 @@ import styled from "styled-components";
 import Calendar from "./Calendar/Calendar";
 import RightPanel from "./RightPanel/RightPanel";
 import {DateContext} from "./Providers/DataContext";
-import MonthInTheGenitiveCase from "./Scripts/MonthInTheGenitiveCase";
+import {GetMonthTitle} from "./Scripts/GetMonthTitle";
 
 function App() {
 const {nowDate} = useContext(DateContext);
@@ -15,7 +15,7 @@ const {nowDate} = useContext(DateContext);
                   <AppContent>
                       <BodyContainer>
                           <Header/>
-                          <MonthTitle>{MonthInTheGenitiveCase(nowDate)}, {
+                          <MonthTitle>{GetMonthTitle(nowDate)}, {
                               nowDate.getFullYear()
                           }</MonthTitle>
                           <Calendar/>

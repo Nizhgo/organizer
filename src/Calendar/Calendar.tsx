@@ -44,6 +44,10 @@ const CalendarContainer = styled.div`
     @media (max-width: 756px) {
         column-gap: 0.3em;
     }
+  
+    @media (max-width: 400px) {
+      margin-left: -15px;
+    }
 `
 
 export default Calendar;

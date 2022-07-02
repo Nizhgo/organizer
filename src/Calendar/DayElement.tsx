@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import styled from "styled-components";
-import {getShortWeekDay, getWeekDay} from "../Scripts/WeekDayTitle";
+import {getShortWeekDay, getWeekDay} from "../Scripts/GetWeekDayTitle";
 
 interface IDayElement {
     date: Date;

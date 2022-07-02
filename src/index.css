@@ -1,13 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@700;800&display=swap');
 
 @font-face {
-    font-family: 'Lineatura';
-    src: url('Fonts/Lineatura.eot');
-    src: url('Fonts/Lineatura.eot?#iefix') format('embedded-opentype'),
-    url('Fonts/Lineatura.woff') format('woff'),
-    url('Fonts/Lineatura.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+    font-family: "Lineatura";
+    src: url('./Fonts/Lineatura.ttf') format("truetype");
+    src: url('./Fonts/Lineatura.eot') format("embedded-opentype");
+    src: url('./Fonts/Lineatura.woff') format("woff");
 }
 
 body {

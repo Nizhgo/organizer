@@ -1,13 +1,13 @@
 import React, {useContext, useEffect, useState} from "react";
 import styled from "styled-components";
-import {getWeekDay} from "../Scripts/WeekDayTitle";
+import {getWeekDay} from "../Scripts/GetWeekDayTitle";
 import AddElement from "./AddElement";
 import {AddElementBtn} from "../SharedCopmponents/Buttons";
 import DailyTaskCard from "./DailyTaskCard";
 import {OrganizerContext} from "../Providers/OrganizerContext";
 import {ITask} from "../Providers/OrganizerContext";
 import {DateContext} from "../Providers/DataContext";
-import MonthInTheGenitiveCase from "../Scripts/MonthInTheGenitiveCase";
+import {GetMonthTitleInCase} from "../Scripts/GetMonthTitle";
 
 
 const RightPanel = () =>
@@ -25,7 +25,7 @@ const RightPanel = () =>
     const day = selectedDay.toLocaleString('ru', {
         day: 'numeric'
     })
-    const month = MonthInTheGenitiveCase(selectedDay);
+    const month = GetMonthTitleInCase(selectedDay);
 
     useEffect(() =>
     {
@@ -65,7 +65,7 @@ const RightPanel = () =>
 }
 
 const RightPanelContainer = styled.div`
-  position: center;
+  position: relative;
   overflow-y:auto;
   padding: 1em;
   box-sizing: border-box;
@@ -74,6 +74,10 @@ const RightPanelContainer = styled.div`
   height: 100%;
   width: 100%;
   border-left: 3px solid #E1E1E1;
+  
+    @media (max-width: 968px) {
+      border-left: none;
+    }
   
 `
 const DayTitle = styled.p`
