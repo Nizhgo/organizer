@@ -4,25 +4,22 @@ import {Input, TextArea} from '../SharedCopmponents/Input'
 import styled from "styled-components";
 import {AddElementBtn} from "../SharedCopmponents/Buttons";
 import {DateContext} from "../App";
+import {ITask, OrganizerContext} from "../Auth/OrganizerContext";
+import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 
 const AddElement = () =>
 {
     const {selectedDay} = useContext(DateContext);
+    const {AddTask} = useContext(OrganizerContext);
     const [titleText, setTitleText] = useState('');
     const [bodyText, setBodyText] = useState('');
     const onSubmit = async () =>
     {
-        let jsonDataObj = JSON.stringify({date: selectedDay, title: titleText, body: bodyText});
-        console.log(jsonDataObj);
-        const Response = await fetch('http://localhost/organizer/AddItemInDayToDoList.php', {
-            method: 'post',
-            mode: 'cors',
-            headers: {
-                "Content-Type": "application/json; charset=utf-8",
-            },
-            body: jsonDataObj
-        });
-        console.log(Response);
+        if (titleText.length > 0 && bodyText.length > 0) {
+        AddTask({id: generateUniqueID(), title: titleText, body: bodyText, timestamp: selectedDay} as ITask);
+        setTitleText('');
+        setBodyText('');
+        }
     }
     return(
         <Card>

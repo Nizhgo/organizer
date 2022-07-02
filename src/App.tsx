@@ -4,7 +4,7 @@ import Header from "./Header/Header";
 import styled from "styled-components";
 import Calendar from "./Calendar/Calendar";
 import RightPanel from "./RightPanel/RightPanel";
-import {AuthProvider} from "./Auth/AuthContext";
+import {OrganizerProvider} from "./Auth/OrganizerContext";
 
 export const DateContext = createContext<any>(new Date());
 
@@ -12,8 +12,8 @@ function App() {
     const [selectedDay, setSelectedDay] = useState(new Date());
     const nowDate = new Date();
   return (
+      <OrganizerProvider>
       <DateContext.Provider value={{selectedDay, setSelectedDay, nowDate}}>
-          <AuthProvider>
               <AppWrapper>
                   <BodyContainer>
                       <Header/>
@@ -24,10 +24,10 @@ function App() {
                       }</MonthTitle>
                       <Calendar/>
                   </BodyContainer>
-                  <RightPanel/>
+                    <RightPanel/>
               </AppWrapper>
-          </AuthProvider>
       </DateContext.Provider>
+      </OrganizerProvider>
   );
 }
 
