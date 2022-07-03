@@ -17,7 +17,7 @@ const TaskInteractionPanel = () =>
     const {selectedDay} = useContext(DateContext);
     const [isAddingNewElement, setIsAddingNewElement] = useState<boolean>(false);
     const [toDoList, setToDoList] = useState<ITask[]>(GetTaskByDayMothAndYear(selectedDay));
-    const [isShow, setIsShow] = useState<boolean>(true);
+    const [isShow, setIsShow] = useState<boolean>(false);
     useEffect(() =>
     {
         setIsShow(true);
@@ -31,14 +31,13 @@ const TaskInteractionPanel = () =>
     useEffect(() =>
     {
         setToDoList(GetTaskByDayMothAndYear(selectedDay));
-    }, [selectedDay]);
+    }, [selectedDay, GetTasks]);
 
     return(
         <RightPanelContainer isShown={isShow}>
             <CloseIconContainer onClick={() => setIsShow(false)}>
                 <img src={CloseIcon} alt={'закрыть'}/>
             </CloseIconContainer>
-            {GetTasks}
             <DayTitle>
                 {`${day} ${month}, ${getWeekDay(selectedDay)}`}
             </DayTitle>
