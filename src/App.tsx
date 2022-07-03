@@ -3,7 +3,7 @@ import BodyContainer from './SharedCopmponents/BodyContainer';
 import Header from "./Header/Header";
 import styled from "styled-components";
 import Calendar from "./Calendar/Calendar";
-import RightPanel from "./RightPanel/RightPanel";
+import TaskInteractionPanel from "./TaskInteractionPanel/TaskInteractionPanel";
 import {DateContext} from "./Providers/DataContext";
 import {GetMonthTitle} from "./Scripts/GetMonthTitle";
 
@@ -20,7 +20,7 @@ const {nowDate} = useContext(DateContext);
                           }</MonthTitle>
                           <Calendar/>
                       </BodyContainer>
-                      <RightPanel/>
+                      <TaskInteractionPanel/>
                   </AppContent>
               </AppContainer>
             </AppWrapper>
@@ -49,7 +49,6 @@ const AppContainer = styled.div`
   margin-top: 1em;
   border-radius: 8px;
   background: #FDFDFD;
-  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;

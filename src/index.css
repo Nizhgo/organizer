@@ -3,18 +3,21 @@
 @font-face {
     font-family: "Lineatura";
     src: url('./Fonts/Lineatura.ttf') format("truetype");
-    src: url('./Fonts/Lineatura.eot') format("embedded-opentype");
-    src: url('./Fonts/Lineatura.woff') format("woff");
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+}
+
+button, input {
+    all: unset;
 }
 
 body {
     margin: 0;
-    font-family: Lineatura, sans-serif;
+    font-family: "Lineatura", sans-serif;
     background: #D2D2D2;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-}
-
-h1, h2, h3, h4, h5, h6, p, button, input, a, text {
-  all: unset;
 }

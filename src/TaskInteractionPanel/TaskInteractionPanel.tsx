@@ -8,19 +8,20 @@ import {OrganizerContext} from "../Providers/OrganizerContext";
 import {ITask} from "../Providers/OrganizerContext";
 import {DateContext} from "../Providers/DataContext";
 import {GetMonthTitleInCase} from "../Scripts/GetMonthTitle";
+import CloseIcon from "../Images/close_FILL0_wght400_GRAD0_opsz48.svg"
 
 
-const RightPanel = () =>
+const TaskInteractionPanel = () =>
 {
-    const {GetTaskByDayMothAndYear, AddTask, DeleteTask, GetTasks} = useContext(OrganizerContext);
+    const {GetTaskByDayMothAndYear, GetTasks} = useContext(OrganizerContext);
     const {selectedDay} = useContext(DateContext);
     const [isAddingNewElement, setIsAddingNewElement] = useState<boolean>(false);
     const [toDoList, setToDoList] = useState<ITask[]>(GetTaskByDayMothAndYear(selectedDay));
-//     const dateYYYYMMDD = `${selectedDay.getFullYear()}-${selectedDay.toLocaleString('ru', {
-//     month: '2-digit'
-// })}-${selectedDay.toLocaleString('ru', {
-//     day: '2-digit'
-// })}`;
+    const [isShow, setIsShow] = useState<boolean>(true);
+    useEffect(() =>
+    {
+        setIsShow(true);
+    }, [selectedDay]);
 
     const day = selectedDay.toLocaleString('ru', {
         day: 'numeric'
@@ -30,10 +31,13 @@ const RightPanel = () =>
     useEffect(() =>
     {
         setToDoList(GetTaskByDayMothAndYear(selectedDay));
-    }, [GetTasks]);
+    }, [selectedDay]);
 
     return(
-        <RightPanelContainer>
+        <RightPanelContainer isShown={isShow}>
+            <CloseIconContainer onClick={() => setIsShow(false)}>
+                <img src={CloseIcon} alt={'закрыть'}/>
+            </CloseIconContainer>
             {GetTasks}
             <DayTitle>
                 {`${day} ${month}, ${getWeekDay(selectedDay)}`}
@@ -64,7 +68,11 @@ const RightPanel = () =>
     )
 }
 
-const RightPanelContainer = styled.div`
+interface IRightPanelContainerProps{
+    isShown: boolean;
+}
+
+const RightPanelContainer = styled.div<IRightPanelContainerProps>`
   position: relative;
   overflow-y:auto;
   padding: 1em;
@@ -74,10 +82,15 @@ const RightPanelContainer = styled.div`
   height: 100%;
   width: 100%;
   border-left: 3px solid #E1E1E1;
+  @media (max-width: 968px) {
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: #fff;
+    display: ${(props) => (props.isShown ? 'block' : 'none')};
+  }
   
-    @media (max-width: 968px) {
-      border-left: none;
-    }
   
 `
 const DayTitle = styled.p`
@@ -93,7 +106,20 @@ const ToDoListTitle = styled.p`
   font-size: 20px;
   line-height: 98.9%;
   color: #777777;
-
 `
 
-export default RightPanel;
+const CloseIconContainer = styled.div`
+    position: fixed;
+    top: 1.5em;
+    right: 1.5em;
+    cursor: pointer;
+    width: 1.5em;
+    height: 1.5em;
+    display: none;
+    @media (max-width: 968px) {
+      display: block;
+    }
+`
+
+
+export default TaskInteractionPanel;

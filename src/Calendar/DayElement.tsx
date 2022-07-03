@@ -11,9 +11,13 @@ const DayElement = (props: IDayElement) =>
     const {date, selected} = props;
     const isSelected = (date.getDate()) === selected.getDate() && date.getMonth() === selected.getMonth() && date.getFullYear() === selected.getFullYear();
     const [isShort, setIsShort] = useState<boolean>(false);
+
+
+    //change isShort state when window size changes
+
     useEffect(() =>
     {
-        if (window.innerWidth < 1000)
+        if(window.innerWidth < 968)
         {
             setIsShort(true);
         }
@@ -21,29 +25,17 @@ const DayElement = (props: IDayElement) =>
         {
             setIsShort(false);
         }
-    });
-    if (!isShort)
-    {
+    }, [window.innerWidth]);
+
         return(
             <DayElementContainer isSelected={isSelected}>
-                <WeekDayTitle isSelected={isSelected}>{getWeekDay(date)}</WeekDayTitle>
+                <WeekDayTitle isSelected={isSelected}>{isShort? getShortWeekDay(date) : getWeekDay(date)}</WeekDayTitle>
                 <DayElementLine/>
                 <Date isSelected={isSelected}>{date.toLocaleString('ru', {
                     day: '2-digit'
                 })}</Date>
             </DayElementContainer>
         )
-    }
-    else {
-        return(
-            <MobileDayElementContainer isSelected={isSelected}>
-                <WeekDayTitle isSelected={isSelected}>{getShortWeekDay(date)}</WeekDayTitle>
-                <Date isSelected={isSelected}>{date.toLocaleString('ru', {
-                    day: '2-digit'
-                })}</Date>
-            </MobileDayElementContainer>
-        )
-    }
 }
 
 
@@ -64,32 +56,18 @@ const DayElementContainer = styled.div<ISelected>`
   transition: all 0.2s ease-in-out;
   pointer-events: stroke;
   
-  @media (max-width: 768px) {
-    gap: 1.2em;
-  }
-  
-    @media (max-width: 576px) {  
-      scale: none;
-    gap: 0.9em;
-    }
-  
-`
-
-const MobileDayElementContainer = styled.div<ISelected>`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  @media (max-width: 968px) {
     padding: 10px;
     max-width: 45px;
     aspect-ratio: 9/12;
     width: 100%;
     gap: 1.1em;
-    border-radius: 12px;
-    background: ${(props) => (props.isSelected ? 'rgba(208, 172, 172, 0.1);' : 'transparent')};
-    transition: all 0.2s ease-in-out;
-    pointer-events: stroke;
-  `
+    scale: none;
+    align-items: center;
+    justify-content: center;
+  }
+  
+`
 const DayElementLine = styled.line`
   display: block;
   height: 2px;
