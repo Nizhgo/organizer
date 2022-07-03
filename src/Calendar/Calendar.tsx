@@ -13,9 +13,10 @@ const Calendar = () =>
                     {
                         GetArrayOfDaysForMonths().map(value => {
                             return(
-                                <div key={value.getTime()} onClick={() => setSelectedDay(value)}>
+                                <DayElementWrapper key={value.getTime()} onClick={() => setSelectedDay(value)}>
                                     <DayElement date={value} selected={selectedDay}/>
-                                </div>
+                                </DayElementWrapper>
+
                             );
                         })
                     }
@@ -44,10 +45,14 @@ const CalendarContainer = styled.div`
     @media (max-width: 756px) {
         column-gap: 0.3em;
     }
-  
-    @media (max-width: 400px) {
-      margin-left: -15px;
-    }
 `
+
+const DayElementWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    `
 
 export default Calendar;

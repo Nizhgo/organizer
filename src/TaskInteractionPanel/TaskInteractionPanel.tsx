@@ -18,20 +18,29 @@ const TaskInteractionPanel = () =>
     const [isAddingNewElement, setIsAddingNewElement] = useState<boolean>(false);
     const [toDoList, setToDoList] = useState<ITask[]>(GetTaskByDayMothAndYear(selectedDay));
     const [isShow, setIsShow] = useState<boolean>(false);
-    useEffect(() =>
-    {
-        setIsShow(true);
-    }, [selectedDay]);
 
     const day = selectedDay.toLocaleString('ru', {
         day: 'numeric'
     })
     const month = GetMonthTitleInCase(selectedDay);
 
+
+    useEffect(() =>
+    {
+        setIsShow(true);
+    }, [selectedDay, GetTaskByDayMothAndYear]);
+
     useEffect(() =>
     {
         setToDoList(GetTaskByDayMothAndYear(selectedDay));
     }, [selectedDay, GetTasks]);
+
+
+    useEffect(() =>
+    {
+        setIsShow(false)
+    }, []);
+
 
     return(
         <RightPanelContainer isShown={isShow}>
