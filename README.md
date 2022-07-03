@@ -5,6 +5,8 @@
 <br/>
 <img stylr={{height:'200px'}} src='https://i.ibb.co/sPT2r27/image.png'/>
 <br/>
-<tt>React + TS + styled components. <n/>Бэкэнд на php + sql. </tt>
+<tt>React + TS + styled components.<tr/>
+
+Задачи сохраняются в локальную память
 
 <h6>Курсовая работа 4-го семестра</h6>
