@@ -1,9 +1,9 @@
 import React, {useCallback, useContext, useEffect, useState} from "react";
-import Card from "../SharedCopmponents/Card";
+import Card from "../../SharedCopmponents/Card";
 import styled from "styled-components";
-import EditIcon from '../Images/edit_FILL0_wght400_GRAD0_opsz40.svg'
-import DeleteIcon from '../Images/delete_forever_FILL0_wght400_GRAD0_opsz40.svg'
-import {Input, TextArea} from "../SharedCopmponents/Input";
+import EditIcon from '../../Assets/Images/edit_FILL0_wght400_GRAD0_opsz40.svg'
+import DeleteIcon from '../../Assets/Images/delete_forever_FILL0_wght400_GRAD0_opsz40.svg'
+import {Input, TextArea} from "../../SharedCopmponents/Input";
 import {ITask, OrganizerContext} from "../Providers/OrganizerContext";
 const DailyTaskCard = (props: ITask) =>
 {

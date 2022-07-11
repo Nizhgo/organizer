@@ -1,6 +1,6 @@
 import React, {useContext, useState} from "react";
 import styled from "styled-components";
-import Logo from '../Images/Logo.svg'
+import Logo from '../../Assets/Images/Logo.svg'
 const Header = () =>
 {
   return(

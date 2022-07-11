@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import DateProvider from "./Providers/DataContext";
-import {OrganizerProvider} from "./Providers/OrganizerContext";
+import DateProvider from "./Components/Providers/DataContext";
+import {OrganizerProvider} from "./Components/Providers/OrganizerContext";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

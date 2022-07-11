@@ -1,13 +1,14 @@
-import React, {useEffect, useState} from "react";
+import React, {memo, useEffect, useMemo, useState} from "react";
 import styled from "styled-components";
-import {getShortWeekDay, getWeekDay} from "../Scripts/GetWeekDayTitle";
+import {getShortWeekDay, getWeekDay} from "../../Scripts/GetWeekDayTitle";
 
 interface IDayElement {
     date: Date;
     selected: Date;
 }
-const DayElement = (props: IDayElement) =>
+const DayElement = memo((props: IDayElement) =>
 {
+
     const {date, selected} = props;
     const isSelected = (date.getDate()) === selected.getDate() && date.getMonth() === selected.getMonth() && date.getFullYear() === selected.getFullYear();
     const [isShort, setIsShort] = useState<boolean>(false);
@@ -25,9 +26,9 @@ const DayElement = (props: IDayElement) =>
         {
             setIsShort(false);
         }
-    }, [window.innerWidth]);
+    }, []);
 
-        return(
+        return useMemo(() => (
             <DayElementContainer isSelected={isSelected}>
                 <WeekDayTitle isSelected={isSelected}>{isShort? getShortWeekDay(date) : getWeekDay(date)}</WeekDayTitle>
                 <DayElementLine/>
@@ -35,8 +36,8 @@ const DayElement = (props: IDayElement) =>
                     day: '2-digit'
                 })}</Date>
             </DayElementContainer>
-        )
-}
+        ), [date, isSelected]);
+});
 
 
 interface ISelected {

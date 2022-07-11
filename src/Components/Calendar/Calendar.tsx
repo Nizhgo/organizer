@@ -1,28 +1,30 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, {useContext, useEffect, useMemo, useRef, useState} from "react";
 import styled from "styled-components";
 import DayElement from "./DayElement";
 import {DateContext} from "../Providers/DataContext";
-import GetArrayOfDaysForMonths from "../Scripts/GetArrayOfDaysForMonths";
+import GetArrayOfDaysForMonths from "../../Scripts/GetArrayOfDaysForMonths";
 
 const Calendar = () =>
 {
     const {selectedDay, setSelectedDay} = useContext(DateContext);
-    return(
+    const arrayOfDays = useMemo<Date[]>(() => GetArrayOfDaysForMonths(selectedDay), [selectedDay]);
+    return useMemo(() => (
         <>
             <CalendarContainer>
-                    {
-                        GetArrayOfDaysForMonths().map(value => {
-                            return(
-                                <DayElementWrapper key={value.getTime()} onClick={() => setSelectedDay(value)}>
-                                    <DayElement date={value} selected={selectedDay}/>
-                                </DayElementWrapper>
+                {
+                    arrayOfDays.map(value => {
+                        return(
+                            <DayElementWrapper key={value.getTime()} onClick={() => setSelectedDay(value)}>
+                                <DayElement date={value} selected={selectedDay}/>
+                            </DayElementWrapper>
 
-                            );
-                        })
-                    }
+                        );
+                    })
+                }
             </CalendarContainer>
         </>
-    )
+    ), [arrayOfDays, selectedDay]);
+
 }
 
 

@@ -1,14 +1,14 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, {useContext, useEffect, useMemo, useState} from "react";
 import styled from "styled-components";
-import {getWeekDay} from "../Scripts/GetWeekDayTitle";
+import {getWeekDay} from "../../Scripts/GetWeekDayTitle";
 import AddElement from "./AddElement";
-import {AddElementBtn} from "../SharedCopmponents/Buttons";
+import {AddElementBtn} from "../../SharedCopmponents/Buttons";
 import DailyTaskCard from "./DailyTaskCard";
 import {OrganizerContext} from "../Providers/OrganizerContext";
 import {ITask} from "../Providers/OrganizerContext";
 import {DateContext} from "../Providers/DataContext";
-import {GetMonthTitleInCase} from "../Scripts/GetMonthTitle";
-import CloseIcon from "../Images/close_FILL0_wght400_GRAD0_opsz48.svg"
+import {GetMonthTitleInCase} from "../../Scripts/GetMonthTitle";
+import CloseIcon from "../../Assets/Images/close_FILL0_wght400_GRAD0_opsz48.svg"
 
 
 const TaskInteractionPanel = () =>
@@ -19,21 +19,24 @@ const TaskInteractionPanel = () =>
     const [toDoList, setToDoList] = useState<ITask[]>(GetTaskByDayMothAndYear(selectedDay));
     const [isShow, setIsShow] = useState<boolean>(false);
 
-    const day = selectedDay.toLocaleString('ru', {
+    const day = useMemo(() => selectedDay.toLocaleString('ru', {
         day: 'numeric'
-    })
-    const month = GetMonthTitleInCase(selectedDay);
+    }), [selectedDay]);
+
+    const month = useMemo(() => GetMonthTitleInCase(selectedDay), [selectedDay]);
+
+    const dayTitle = useMemo(() => `${day} ${month}, ${getWeekDay(selectedDay)}`, [day, month, selectedDay]);
 
 
     useEffect(() =>
     {
         setIsShow(true);
-    }, [selectedDay, GetTaskByDayMothAndYear]);
+    }, [selectedDay]);
 
     useEffect(() =>
     {
         setToDoList(GetTaskByDayMothAndYear(selectedDay));
-    }, [selectedDay, GetTasks]);
+    }, [GetTaskByDayMothAndYear, selectedDay]);
 
 
     useEffect(() =>
@@ -42,13 +45,13 @@ const TaskInteractionPanel = () =>
     }, []);
 
 
-    return(
+    return useMemo(() => (
         <RightPanelContainer isShown={isShow}>
             <CloseIconContainer onClick={() => setIsShow(false)}>
                 <img src={CloseIcon} alt={'закрыть'}/>
             </CloseIconContainer>
             <DayTitle>
-                {`${day} ${month}, ${getWeekDay(selectedDay)}`}
+                {dayTitle}
             </DayTitle>
                 <ToDoListTitle>
                     Список дел:
@@ -58,11 +61,20 @@ const TaskInteractionPanel = () =>
                         <>
                             {toDoList.map((obj) =>
                             {
-                               return <DailyTaskCard id={obj.id} title={obj.title} body={obj.body} timestamp={obj.timestamp} key={obj.id}/>
+                               return <DailyTaskCard
+                                   id={obj.id}
+                                   title={obj.title}
+                                   body={obj.body}
+                                   timestamp={obj.timestamp}
+                                   key={obj.id}/>
                             })}
                         </>
-                        : <>
-                        <p style={{marginTop:'2em'}}>на этот день нет никаких дел!😊</p>
+                        :
+                        <>
+                        <p
+                            style={{marginTop:'2em'}}>
+                            на этот день нет никаких дел!😊
+                        </p>
                     </>
                 }
                 {
@@ -73,7 +85,7 @@ const TaskInteractionPanel = () =>
                     }
         </RightPanelContainer>
 
-    )
+    ), [isAddingNewElement, isShow, toDoList, dayTitle]);
 }
 
 interface IRightPanelContainerProps{

@@ -1,30 +1,32 @@
-import React, {createContext, useContext, useState} from 'react';
+import React, {createContext, useContext, useMemo, useState} from 'react';
 import BodyContainer from './SharedCopmponents/BodyContainer';
-import Header from "./Header/Header";
+import Header from "./Components/Header/Header";
 import styled from "styled-components";
-import Calendar from "./Calendar/Calendar";
-import TaskInteractionPanel from "./TaskInteractionPanel/TaskInteractionPanel";
-import {DateContext} from "./Providers/DataContext";
+import Calendar from "./Components/Calendar/Calendar";
+import TaskInteractionPanel from "./Components/TaskInteractionPanel/TaskInteractionPanel";
+import {DateContext} from "./Components/Providers/DataContext";
 import {GetMonthTitle} from "./Scripts/GetMonthTitle";
 
 function App() {
 const {nowDate} = useContext(DateContext);
-  return (
-          <AppWrapper>
-              <AppContainer>
-                  <AppContent>
-                      <BodyContainer>
-                          <Header/>
-                          <MonthTitle>{GetMonthTitle(nowDate)}, {
-                              nowDate.getFullYear()
-                          }</MonthTitle>
-                          <Calendar/>
-                      </BodyContainer>
-                      <TaskInteractionPanel/>
-                  </AppContent>
-              </AppContainer>
-            </AppWrapper>
-  );
+const month = useMemo(() => GetMonthTitle(nowDate), [nowDate]);
+const year = useMemo(() => nowDate.getFullYear(), [nowDate]);
+  return useMemo(() => (
+    <AppWrapper>
+        <AppContainer>
+            <AppContent>
+                <BodyContainer>
+                    <Header/>
+                    <MonthTitle>{year}, {
+                        month
+                    }</MonthTitle>
+                    <Calendar/>
+                </BodyContainer>
+                <TaskInteractionPanel/>
+            </AppContent>
+        </AppContainer>
+    </AppWrapper>
+  ), [month, year]);
 }
 
 export default App;
