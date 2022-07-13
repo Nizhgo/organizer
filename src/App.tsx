@@ -1,5 +1,5 @@
 import React, {createContext, useContext, useMemo, useState} from 'react';
-import BodyContainer from './SharedCopmponents/BodyContainer';
+import BodyContainer from './UiCopmponents/BodyContainer';
 import Header from "./Components/Header/Header";
 import styled from "styled-components";
 import Calendar from "./Components/Calendar/Calendar";

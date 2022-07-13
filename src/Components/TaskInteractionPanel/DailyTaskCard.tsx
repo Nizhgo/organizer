@@ -1,10 +1,11 @@
 import React, {useCallback, useContext, useEffect, useState} from "react";
-import Card from "../../SharedCopmponents/Card";
+import Card from "../../UiCopmponents/Card";
 import styled from "styled-components";
 import EditIcon from '../../Assets/Images/edit_FILL0_wght400_GRAD0_opsz40.svg'
 import DeleteIcon from '../../Assets/Images/delete_forever_FILL0_wght400_GRAD0_opsz40.svg'
-import {Input, TextArea} from "../../SharedCopmponents/Input";
+import {Input, TextArea} from "../../UiCopmponents/Input";
 import {ITask, OrganizerContext} from "../Providers/OrganizerContext";
+import {SmallButton} from "../../UiCopmponents/Buttons";
 const DailyTaskCard = (props: ITask) =>
 {
     const {DeleteTask, UpdateTask} = useContext(OrganizerContext);
@@ -40,15 +41,16 @@ useEffect(() =>
                 <DailyTaskContainer>
                     {
                         isEdit ?
-                            <>
+                            <TaskContainer>
                                 <Input value={titleText} onChange={e => setTitleText(e.target.value)}/>
                                 <TextArea value={bodyText} onChange={e => setBodyText(e.target.value)}/>
-                            </>
+                                <SmallButton onClick={() => setIsEdit(false)}>Созранить</SmallButton>
+                            </TaskContainer>
                             :
-                            <>
+                            <TaskContainer>
                                 <CardTitle>{titleText}</CardTitle>
                                 <CardBody>{bodyText}</CardBody>
-                            </>
+                            </TaskContainer>
                     }
                 </DailyTaskContainer>
                     <form style={{display:'flex', alignItems:'start',justifyContent:'space-between'}}>
@@ -70,6 +72,13 @@ const CardTitle = styled.h6`
   line-height: 98.9%;
   color: #323232;
 `
+
+const TaskContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 0.4em;
+    border-radius: 5px;
+  `
 
 const DailyTaskMenuIcon = styled.img`
   height: 18px;

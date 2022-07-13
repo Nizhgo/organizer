@@ -1,11 +1,11 @@
 import React, {useContext, useEffect, useState} from "react";
-import Card from "../../SharedCopmponents/Card";
+import Card from "../../UiCopmponents/Card";
 import styled from "styled-components";
-import {AddElementBtn} from "../../SharedCopmponents/Buttons";
+import {AddElementBtn, SmallButton} from "../../UiCopmponents/Buttons";
 import {DateContext} from "../Providers/DataContext";
 import {ITask, OrganizerContext} from "../Providers/OrganizerContext";
 import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
-import {Button, Textarea, Input} from "@vechaiui/react";
+import {Input} from "../../UiCopmponents/Input";
 
 const AddElement = () =>
 {
@@ -28,9 +28,9 @@ const AddElement = () =>
                 <AddElementTitle>Добавление нового дела</AddElementTitle>
                 <Input required={true} placeholder={'Заголовок'} value={titleText}
                        onChange={e => setTitleText(e.target.value)}/>
-                <Textarea placeholder={'Текст'} value={bodyText}
+                <Input placeholder={'Текст'} value={bodyText}
                           onChange={e => setBodyText(e.target.value)} style={{resize: 'none'}}/>
-                <Button onClick={onSubmit} variant={'solid'}>Добавить</Button>
+                <SmallButton onClick={onSubmit}>Добавить</SmallButton>
             </AddElementContainer>
                 </form>
         </Card>

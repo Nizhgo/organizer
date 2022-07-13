@@ -7,7 +7,7 @@ import GetArrayOfDaysForMonths from "../../Scripts/GetArrayOfDaysForMonths";
 const Calendar = () =>
 {
     const {selectedDay, setSelectedDay} = useContext(DateContext);
-    const arrayOfDays = useMemo<Date[]>(() => GetArrayOfDaysForMonths(selectedDay), [selectedDay]);
+    const arrayOfDays = useMemo<Date[]>(() => GetArrayOfDaysForMonths(selectedDay), []);
     return useMemo(() => (
         <>
             <CalendarContainer>
@@ -15,7 +15,7 @@ const Calendar = () =>
                     arrayOfDays.map(value => {
                         return(
                             <DayElementWrapper key={value.getTime()} onClick={() => setSelectedDay(value)}>
-                                <DayElement date={value} selected={selectedDay}/>
+                                <DayElement date={value}/>
                             </DayElementWrapper>
 
                         );
@@ -23,7 +23,7 @@ const Calendar = () =>
                 }
             </CalendarContainer>
         </>
-    ), [arrayOfDays, selectedDay]);
+    ), [arrayOfDays, setSelectedDay]);
 
 }
 

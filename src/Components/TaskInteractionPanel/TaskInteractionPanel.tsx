@@ -2,7 +2,7 @@ import React, {useContext, useEffect, useMemo, useState} from "react";
 import styled from "styled-components";
 import {getWeekDay} from "../../Scripts/GetWeekDayTitle";
 import AddElement from "./AddElement";
-import {AddElementBtn} from "../../SharedCopmponents/Buttons";
+import {AddElementBtn} from "../../UiCopmponents/Buttons";
 import DailyTaskCard from "./DailyTaskCard";
 import {OrganizerContext} from "../Providers/OrganizerContext";
 import {ITask} from "../Providers/OrganizerContext";
@@ -85,7 +85,7 @@ const TaskInteractionPanel = () =>
                     }
         </RightPanelContainer>
 
-    ), [isAddingNewElement, isShow, toDoList, dayTitle]);
+    ), [isShow, dayTitle, toDoList, isAddingNewElement]);
 }
 
 interface IRightPanelContainerProps{
