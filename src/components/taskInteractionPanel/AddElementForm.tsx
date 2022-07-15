@@ -1,13 +1,13 @@
 import React, {useContext, useEffect, useState} from "react";
-import Card from "../../UiCopmponents/Card";
+import Card from "../../ui/Card";
 import styled from "styled-components";
-import {AddElementBtn, SmallButton} from "../../UiCopmponents/Buttons";
-import {DateContext} from "../Providers/DataContext";
-import {ITask, OrganizerContext} from "../Providers/OrganizerContext";
+import {AddElementBtn, SmallButton} from "../../ui/Buttons";
+import {DateContext} from "../providers/DataContext";
+import {ITask, OrganizerContext} from "../providers/OrganizerContext";
 import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
-import {Input} from "../../UiCopmponents/Input";
+import {Input} from "../../ui/Input";
 
-const AddElement = () =>
+const AddElementForm = () =>
 {
     const {selectedDay} = useContext(DateContext);
     const {AddTask} = useContext(OrganizerContext);
@@ -49,4 +49,4 @@ const AddElementTitle = styled.p`
 
 `
 
-export default AddElement;
+export default AddElementForm;

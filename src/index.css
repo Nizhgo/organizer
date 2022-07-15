@@ -2,7 +2,7 @@
 
 @font-face {
     font-family: "Lineatura";
-    src: url('Assets/Fonts/Lineatura.ttf') format("truetype");
+    src: url('assets/fonts/Lineatura.ttf') format("truetype");
 }
 
 h1, h2, h3, h4, h5, h6, p {

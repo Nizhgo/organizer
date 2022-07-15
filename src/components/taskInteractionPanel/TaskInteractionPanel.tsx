@@ -1,14 +1,14 @@
 import React, {useContext, useEffect, useMemo, useState} from "react";
 import styled from "styled-components";
-import {getWeekDay} from "../../Scripts/GetWeekDayTitle";
-import AddElement from "./AddElement";
-import {AddElementBtn} from "../../UiCopmponents/Buttons";
+import {getWeekDay} from "../../scripts/GetWeekDayTitle";
+import AddElementForm from "./AddElementForm";
+import {AddElementBtn} from "../../ui/Buttons";
 import DailyTaskCard from "./DailyTaskCard";
-import {OrganizerContext} from "../Providers/OrganizerContext";
-import {ITask} from "../Providers/OrganizerContext";
-import {DateContext} from "../Providers/DataContext";
-import {GetMonthTitleInCase} from "../../Scripts/GetMonthTitle";
-import CloseIcon from "../../Assets/Images/close_FILL0_wght400_GRAD0_opsz48.svg"
+import {OrganizerContext} from "../providers/OrganizerContext";
+import {ITask} from "../providers/OrganizerContext";
+import {DateContext} from "../providers/DataContext";
+import {GetMonthTitleInCase} from "../../scripts/GetMonthTitle";
+import CloseIcon from "../../assets/images/close_FILL0_wght400_GRAD0_opsz48.svg"
 
 
 const TaskInteractionPanel = () =>
@@ -79,7 +79,7 @@ const TaskInteractionPanel = () =>
                 }
                 {
                     isAddingNewElement ?
-                        <AddElement/>
+                        <AddElementForm/>
                         :
                         <AddElementBtn onClick={() =>setIsAddingNewElement(prev => !prev)}>Добавить</AddElementBtn>
                     }

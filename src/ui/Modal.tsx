@@ -1,7 +1,7 @@
 import {Dispatch, SetStateAction, useCallback, useEffect, useState} from "react";
 import React from "react";
 import styled from "styled-components";
-import closeIcon from '../Assets/Images/close_FILL0_wght400_GRAD0_opsz48.svg';
+import closeIcon from '../assets/images/close_FILL0_wght400_GRAD0_opsz48.svg';
 
 interface IModal {
     setIsOpen: Dispatch<SetStateAction<boolean>>;

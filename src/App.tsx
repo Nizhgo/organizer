@@ -1,11 +1,11 @@
 import React, {createContext, useContext, useMemo, useState} from 'react';
-import BodyContainer from './UiCopmponents/BodyContainer';
-import Header from "./Components/Header/Header";
+import BodyContainer from './ui/BodyContainer';
+import Header from "./components/header/Header";
 import styled from "styled-components";
-import Calendar from "./Components/Calendar/Calendar";
-import TaskInteractionPanel from "./Components/TaskInteractionPanel/TaskInteractionPanel";
-import {DateContext} from "./Components/Providers/DataContext";
-import {GetMonthTitle} from "./Scripts/GetMonthTitle";
+import Calendar from "./components/calendar/Calendar";
+import TaskInteractionPanel from "./components/taskInteractionPanel/TaskInteractionPanel";
+import {DateContext} from "./components/providers/DataContext";
+import {GetMonthTitle} from "./scripts/GetMonthTitle";
 
 function App() {
 const {nowDate} = useContext(DateContext);

@@ -1,11 +1,11 @@
 import React, {useCallback, useContext, useEffect, useState} from "react";
-import Card from "../../UiCopmponents/Card";
+import Card from "../../ui/Card";
 import styled from "styled-components";
-import EditIcon from '../../Assets/Images/edit_FILL0_wght400_GRAD0_opsz40.svg'
-import DeleteIcon from '../../Assets/Images/delete_forever_FILL0_wght400_GRAD0_opsz40.svg'
-import {Input, TextArea} from "../../UiCopmponents/Input";
-import {ITask, OrganizerContext} from "../Providers/OrganizerContext";
-import {SmallButton} from "../../UiCopmponents/Buttons";
+import EditIcon from '../../assets/images/edit_FILL0_wght400_GRAD0_opsz40.svg'
+import DeleteIcon from '../../assets/images/delete_forever_FILL0_wght400_GRAD0_opsz40.svg'
+import {Input, TextArea} from "../../ui/Input";
+import {ITask, OrganizerContext} from "../providers/OrganizerContext";
+import {SmallButton} from "../../ui/Buttons";
 const DailyTaskCard = (props: ITask) =>
 {
     const {DeleteTask, UpdateTask} = useContext(OrganizerContext);
