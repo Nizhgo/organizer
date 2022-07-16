@@ -2,9 +2,9 @@ import React, {useContext, useEffect, useState} from "react";
 import Card from "../../../../ui/Card";
 import EditIcon from '../../../../assets/images/edit_FILL0_wght400_GRAD0_opsz40.svg'
 import DeleteIcon from '../../../../assets/images/delete_forever_FILL0_wght400_GRAD0_opsz40.svg'
-import {Input, TextArea} from "../../../../ui/Input";
+import {Input, Button} from 'antd';
 import {ITask, OrganizerContext} from "../../../../components/providers/OrganizerContext";
-import {SmallButton} from "../../../../ui/Buttons";
+
 import {
     CardBody,
     CardTitle,
@@ -13,6 +13,8 @@ import {
     DailyTaskMenuIcon,
     TaskContainer
 } from "./style"
+import { FormContainer } from "../sharedUI/style";
+
 
 const DailyTaskCard = (props: ITask) => {
     const {DeleteTask, UpdateTask} = useContext(OrganizerContext);
@@ -44,11 +46,11 @@ const DailyTaskCard = (props: ITask) => {
                 <DailyTaskContainer>
                     {
                         isEdit ?
-                            <TaskContainer>
+                            <FormContainer>
                                 <Input value={titleText} onChange={e => setTitleText(e.target.value)}/>
-                                <TextArea value={bodyText} onChange={e => setBodyText(e.target.value)}/>
-                                <SmallButton onClick={() => setIsEdit(false)}>Созранить</SmallButton>
-                            </TaskContainer>
+                                <Input value={bodyText} onChange={e => setBodyText(e.target.value)}/>
+                                <Button onClick={() => setIsEdit(false)}>Cохранить</Button>
+                            </FormContainer>
                             :
                             <TaskContainer>
                                 <CardTitle>{titleText}</CardTitle>

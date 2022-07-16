@@ -2,14 +2,19 @@ import React, {memo, useContext, useEffect, useMemo, useState} from "react";
 import {getShortWeekDay, getWeekDay} from "../../../../scripts/GetWeekDayTitle";
 import {DateContext} from "../../../../components/providers/DataContext";
 import {IDayElement} from "./interfaces";
-import {Date, DayElementContainer, DayElementLine, WeekDayTitle} from "./style";
+import {Date,
+    DayElementContainer,
+    DayElementLine,
+    DayElementWrapper,
+    WeekDayTitle,
+} from "./style";
 import useViewport from "../../../../hooks/useViewport";
 
 
 const CalendarItem = memo((props: IDayElement) => {
 
     const {date} = props;
-    const {selectedDay} = useContext(DateContext);
+    const {selectedDay, setSelectedDay} = useContext(DateContext);
     const isSelected = useMemo(() => date.getTime() === selectedDay.getTime(), [date, selectedDay]);
     const [isShort, setIsShort] = useState<boolean>(false);
     const {width} = useViewport();
@@ -23,6 +28,7 @@ const CalendarItem = memo((props: IDayElement) => {
     }, []);
 
     return useMemo(() => (
+        <DayElementWrapper key={date.getTime()} onClick={() => setSelectedDay(date)}>
         <DayElementContainer isSelected={isSelected}>
             <WeekDayTitle isSelected={isSelected}>{isShort ? getShortWeekDay(date) : getWeekDay(date)}</WeekDayTitle>
             <DayElementLine/>
@@ -30,6 +36,7 @@ const CalendarItem = memo((props: IDayElement) => {
                 day: '2-digit'
             })}</Date>
         </DayElementContainer>
+        </DayElementWrapper>
     ), [isShort, isSelected]);
 });
 

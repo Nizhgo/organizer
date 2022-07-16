@@ -4,7 +4,7 @@ const CalendarContainer = styled.div`
   width: 100%;
   grid-template-columns: repeat(7, 1fr);
   display: grid;
-  column-gap: 1em;
+  column-gap: normal;
   row-gap: 1.72234em;
   margin-top: 4.123em;
 
@@ -21,12 +21,5 @@ const CalendarContainer = styled.div`
   }
 `
 
-const DayElementWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-`
 
-export {CalendarContainer, DayElementWrapper};
+export {CalendarContainer};

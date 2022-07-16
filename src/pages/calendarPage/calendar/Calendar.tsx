@@ -1,7 +1,7 @@
 import React, {useContext, useMemo} from "react";
 import {DateContext} from "../../../components/providers/DataContext";
 import GetArrayOfDaysForMonths from "../../../scripts/GetArrayOfDaysForMonths";
-import {CalendarContainer, DayElementWrapper} from "./style";
+import {CalendarContainer} from "./style";
 import {CalendarItem} from "./calendarItem/CalendarItem";
 
 const Calendar = () => {
@@ -13,10 +13,7 @@ const Calendar = () => {
                 {
                     arrayOfDays.map(value => {
                         return (
-                            <DayElementWrapper key={value.getTime()} onClick={() => setSelectedDay(value)}>
                                 <CalendarItem date={value}/>
-                            </DayElementWrapper>
-
                         );
                     })
                 }

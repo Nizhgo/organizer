@@ -1,7 +1,7 @@
 import React, {useContext, useEffect, useMemo, useState} from "react";
 import {getWeekDay} from "../../../scripts/GetWeekDayTitle";
 import AddElementForm from "./addElementForm/AddElementForm";
-import {AddElementBtn} from "../../../ui/Buttons";
+import {Button} from "antd";
 import DailyTaskCard from "./dailyTaskCard/DailyTaskCard";
 import {ITask, OrganizerContext} from "../../../components/providers/OrganizerContext";
 import {DateContext} from "../../../components/providers/DataContext";
@@ -75,7 +75,7 @@ const SidePanel = () => {
                 isAddingNewElement ?
                     <AddElementForm/>
                     :
-                    <AddElementBtn onClick={() => setIsAddingNewElement(prev => !prev)}>Добавить</AddElementBtn>
+                    <Button onClick={() => setIsAddingNewElement(prev => !prev)}>Добавить</Button>
             }
         </RightPanelContainer>
 

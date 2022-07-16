@@ -7,6 +7,7 @@ const DayElementContainer = styled.div<ISelected>`
   padding: 10px;
   max-width: 77px;
   aspect-ratio: 9/10;
+  box-sizing: content-box;
   width: 100%;
   gap: 1.7238em;
   border-radius: 12px;
@@ -61,4 +62,13 @@ const WeekDayTitle = styled.p<ISelected>`
   }
 `
 
-export {DayElementContainer, DayElementLine, Date, WeekDayTitle}
+const DayElementWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+`
+
+export {DayElementWrapper, DayElementContainer, DayElementLine, Date, WeekDayTitle}

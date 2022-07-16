@@ -1,11 +1,11 @@
 import React, {useContext, useState} from "react";
 import Card from "../../../../ui/Card";
-import {SmallButton} from "../../../../ui/Buttons";
 import {DateContext} from "../../../../components/providers/DataContext";
 import {ITask, OrganizerContext} from "../../../../components/providers/OrganizerContext";
 import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
-import {Input} from "../../../../ui/Input";
-import {AddElementContainer, AddElementTitle} from "./style";
+import {Input, Button} from "antd";
+import {AddElementTitle} from "./style";
+import {FormContainer} from '../sharedUI/style'
 
 const AddElementForm = () => {
     const {selectedDay} = useContext(DateContext);
@@ -22,14 +22,14 @@ const AddElementForm = () => {
     return (
         <Card>
             <form onSubmit={onSubmit}>
-                <AddElementContainer>
+                <FormContainer>
                     <AddElementTitle>Добавление нового дела</AddElementTitle>
                     <Input required={true} placeholder={'Заголовок'} value={titleText}
                            onChange={e => setTitleText(e.target.value)}/>
                     <Input placeholder={'Текст'} value={bodyText}
                            onChange={e => setBodyText(e.target.value)} style={{resize: 'none'}}/>
-                    <SmallButton onClick={onSubmit}>Добавить</SmallButton>
-                </AddElementContainer>
+                    <Button onClick={onSubmit} type={'primary'}>Добавить</Button>
+                </FormContainer>
             </form>
         </Card>
     )
