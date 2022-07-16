@@ -2,8 +2,7 @@ import React, {createContext, useState} from "react";
 
 export const DateContext = createContext<any | null>(null);
 
-const DateProvider = ({children}: any) =>
-{
+const DateProvider = ({children}: any) => {
     const [selectedDay, setSelectedDay] = useState(new Date());
     const nowDate = new Date();
     return (

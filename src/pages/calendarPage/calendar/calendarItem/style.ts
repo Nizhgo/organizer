@@ -14,7 +14,7 @@ const DayElementContainer = styled.div<ISelected>`
   scale: ${(props) => (props.isSelected ? '1.15' : 'none')};
   transition: all 0.2s ease-in-out;
   pointer-events: stroke;
-  
+
   @media (max-width: 968px) {
     padding: 10px;
     max-width: 45px;
@@ -25,7 +25,7 @@ const DayElementContainer = styled.div<ISelected>`
     align-items: center;
     justify-content: center;
   }
-  
+
 `
 const DayElementLine = styled.line`
   display: block;
@@ -37,28 +37,28 @@ const Date = styled.h3<ISelected>`
   font-size: 32px;
   line-height: 98.9%;
   color: ${(props) => (props.isSelected ? '#DA654D' : 'black')};
-  
+
   @media (max-width: 768px) {
     font-size: 30px;
   }
-  
+
   @media (max-width: 576px) {
     font-size: 20px;
   }
-  
-    @media (max-width: 375px) {
+
+  @media (max-width: 375px) {
     font-size: 15px;
-    }
-  
+  }
+
 `
 
 const WeekDayTitle = styled.p<ISelected>`
   font-size: 13px;
   color: ${(props) => (props.isSelected ? '#DA654D' : 'black')};
-  
-    @media (max-width: 768px) {
-      align-items: center;
-    }
+
+  @media (max-width: 768px) {
+    align-items: center;
+  }
 `
 
 export {DayElementContainer, DayElementLine, Date, WeekDayTitle}

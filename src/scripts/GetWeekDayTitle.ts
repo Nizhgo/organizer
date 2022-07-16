@@ -1,4 +1,3 @@
-
 function getWeekDay(date: Date): string {
     let days = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
 
@@ -10,4 +9,4 @@ function getShortWeekDay(date: Date): string {
     return days[date.getDay()];
 }
 
-export { getWeekDay, getShortWeekDay };
+export {getWeekDay, getShortWeekDay};

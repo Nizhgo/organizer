@@ -19,8 +19,8 @@ const AddElementBtn = styled(SmallButton)`
   margin: 1em auto;
   text-align: center;
   transition: all 320ms ease-in-out;
-  
-  :hover{
+
+  :hover {
     scale: 104%;
   }
 `

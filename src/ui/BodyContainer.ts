@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const BodyContainer = styled.div`
   max-width: 1324px;
+  width: 100%;
   margin-inline: auto;
   display: flex;
   flex-direction: column;

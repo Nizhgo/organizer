@@ -1,4 +1,4 @@
-import React, {createContext, useCallback, useEffect, useMemo, useState} from "react";
+import React, {createContext, useCallback, useEffect, useState} from "react";
 
 export const OrganizerContext = createContext<any | null>(null);
 
@@ -8,10 +8,9 @@ export interface ITask {
     body: string,
     timestamp: Date,
 }
-export const OrganizerProvider = ({children}: any) =>
-{
-    const GetTaskFromLocalStorage = (): ITask[] =>
-    {
+
+export const OrganizerProvider = ({children}: any) => {
+    const GetTaskFromLocalStorage = (): ITask[] => {
         const tasks = localStorage.getItem('tasks');
         if (tasks) {
             return JSON.parse(tasks);
@@ -20,7 +19,6 @@ export const OrganizerProvider = ({children}: any) =>
     }
 
     const [tasks, setTasks] = useState<ITask[]>(GetTaskFromLocalStorage);
-
 
 
     const SaveTasksToLocalStorage = useCallback(() => {
@@ -32,29 +30,24 @@ export const OrganizerProvider = ({children}: any) =>
         SaveTasksToLocalStorage();
     }, [tasks, SaveTasksToLocalStorage]);
 
-    const AddTask = (task: ITask) =>
-    {
+    const AddTask = (task: ITask) => {
         setTasks(prev => [...prev, task]);
     }
 
-    const DeleteTask = (task: ITask) =>
-    {
+    const DeleteTask = (task: ITask) => {
         setTasks(tasks.filter(t => t.id !== task.id));
     }
 
-    const UpdateTask = (task: ITask) =>
-    {
+    const UpdateTask = (task: ITask) => {
         const newTasks = tasks.map(t => t.id === task.id ? task : t);
         setTasks(newTasks);
     }
 
-    const GetTasks = () =>
-    {
+    const GetTasks = () => {
         return tasks;
     }
 
-    const GetTaskByDayMothAndYear = (day: Date) =>
-    {
+    const GetTaskByDayMothAndYear = (day: Date) => {
         return tasks.filter(t => new Date(t.timestamp).getDate() === day.getDate() && new Date(t.timestamp).getMonth() === day.getMonth() && new Date(t.timestamp).getFullYear() === day.getFullYear());
     }
 
