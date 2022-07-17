@@ -1,18 +1,21 @@
 import styled from "styled-components";
 
-const MonthTitle = styled.h2`
-  font-size: 36px;
-  color: black;
-  margin-top: 1em;
-`
 
 const OverviewContainer = styled.div`
   display: grid;
-  grid-template-columns: 8fr 2.5fr;
+  grid-template-columns: 2fr 7fr;
 
   @media (max-width: 968px) {
     grid-template-columns: 1fr;
   }
 `
 
-export {MonthTitle, OverviewContainer};
+const PageMain = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`
+
+
+
+export {OverviewContainer, PageMain};

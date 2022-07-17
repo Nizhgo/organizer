@@ -4,8 +4,8 @@ const CalendarContainer = styled.div`
   width: 100%;
   grid-template-columns: repeat(7, 1fr);
   display: grid;
-  column-gap: normal;
-  row-gap: 1.72234em;
+  row-gap: 2.72234em;
+  column-gap: 1.4em;
   margin-top: 4.123em;
 
   @media (max-width: 1200px) {
@@ -19,7 +19,41 @@ const CalendarContainer = styled.div`
   @media (max-width: 756px) {
     column-gap: 0.3em;
   }
+
+  animation: fadeIn 0.5s ease-in-out;
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+  
+`
+const WeekDayTitleWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+
+
+  
+  `
+
+
+
+const WeekDayTitle = styled.h5`
+  font-family: 'Raleway', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  color: #181818;
 `
 
 
-export {CalendarContainer};
+
+
+export { CalendarContainer, WeekDayTitleWrapper, WeekDayTitle};

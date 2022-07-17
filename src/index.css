@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500;600;700;800&display=swap');
 @import '~antd/dist/antd.css';
 
 @font-face {
@@ -17,7 +17,7 @@ button, input {
 
 body {
     margin: 0;
-    font-family: "Lineatura", sans-serif;
+    font-family: Raleway, sans-serif;
     background: #D2D2D2;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

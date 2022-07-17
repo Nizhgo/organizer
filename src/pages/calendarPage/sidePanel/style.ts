@@ -7,6 +7,7 @@ const RightPanelContainer = styled.div<IRightPanelContainerProps>`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  gap: 1em;
   height: 100%;
   width: 100%;
   border-left: 3px solid #f1f1f1;
@@ -23,7 +24,8 @@ const RightPanelContainer = styled.div<IRightPanelContainerProps>`
 
 
 `
-const DayTitle = styled.p`
+const DayTitle = styled.h6`
+  font-family: "Lineatura", sans-serif;
   margin-top: 1em;
   font-size: 36px;
   max-width: 200px;

@@ -71,12 +71,6 @@ const SidePanel = () => {
                         </p>
                     </>
             }
-            {
-                isAddingNewElement ?
-                    <AddElementForm/>
-                    :
-                    <Button onClick={() => setIsAddingNewElement(prev => !prev)}>Добавить</Button>
-            }
         </RightPanelContainer>
 
     ), [isShow, dayTitle, toDoList, isAddingNewElement]);

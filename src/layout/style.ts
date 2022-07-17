@@ -3,10 +3,9 @@ import styled from "styled-components";
 const Card = styled.div`
   margin-top: 1em;
   border-radius: 8px;
-  background: #FDFDFD;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  background: #F7F6F9;
+  display: block;
+  
 
   @media (max-width: 968px) {
     margin-top: 0;
@@ -31,9 +30,10 @@ const AppWrapper = styled.div`
 `
 
 const AppContent = styled.div`
+  margin-top: 3em;
   display: grid;
   grid-template-columns: 8fr 2.5fr;
-
+    grid-gap: 2em;
   @media (max-width: 968px) {
     grid-template-columns: 1fr;
   }

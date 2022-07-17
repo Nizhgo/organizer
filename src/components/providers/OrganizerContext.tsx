@@ -7,6 +7,9 @@ export interface ITask {
     title: string,
     body: string,
     timestamp: Date,
+    isDone?: boolean
+    startTime?: Date,
+    endTime?: Date
 }
 
 export const OrganizerProvider = ({children}: any) => {

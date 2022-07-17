@@ -1,12 +1,7 @@
-import React from "react";
 
 
-interface IGetArrayOfDaysForMonths {
-    monthShift?: number,
-}
 
-const GetArrayOfDaysForMonths = (props?: IGetArrayOfDaysForMonths) => {
-    const nowDate = new Date(new Date().getFullYear(), new Date().getMonth(), 1);
+const GetArrayOfDaysForMonths = (nowDate: Date) => {
     const firstDayOfMonth = new Date(nowDate.getFullYear(), nowDate.getMonth(), 1);
     const lastDayOfMonth = new Date(nowDate.getFullYear(), nowDate.getMonth() + 1, 0);
     const firstDayOfWeek = firstDayOfMonth.getDay();

@@ -6,4 +6,4 @@ const FormContainer = styled.div`
   gap: 1.4em;
 `
 
-export { FormContainer };
+export {FormContainer};

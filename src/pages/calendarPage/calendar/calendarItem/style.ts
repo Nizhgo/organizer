@@ -2,30 +2,10 @@ import styled from "styled-components";
 import {ISelected} from "./interfaces";
 
 const DayElementContainer = styled.div<ISelected>`
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  max-width: 77px;
-  aspect-ratio: 9/10;
-  box-sizing: content-box;
-  width: 100%;
-  gap: 1.7238em;
-  border-radius: 12px;
-  background: ${(props) => (props.isSelected ? 'rgba(208, 172, 172, 0.1);' : 'transparent')};
-  scale: ${(props) => (props.isSelected ? '1.15' : 'none')};
-  transition: all 0.2s ease-in-out;
-  pointer-events: stroke;
-
-  @media (max-width: 968px) {
-    padding: 10px;
-    max-width: 45px;
-    aspect-ratio: 9/12;
+    display: flex;
     width: 100%;
-    gap: 1.1em;
-    scale: none;
-    align-items: center;
-    justify-content: center;
-  }
+    justify-items: start;
+    align-content: start;
 
 `
 const DayElementLine = styled.line`
@@ -35,7 +15,9 @@ const DayElementLine = styled.line`
   background-color: black;
 `
 const Date = styled.h3<ISelected>`
-  font-size: 32px;
+  font-family: "Lineatura", sans-serif;
+  margin-top: -13px;
+  font-size: 36px;
   line-height: 98.9%;
   color: ${(props) => (props.isSelected ? '#DA654D' : 'black')};
 
@@ -62,11 +44,19 @@ const WeekDayTitle = styled.p<ISelected>`
   }
 `
 
-const DayElementWrapper = styled.div`
+const DayElementWrapper = styled.div<ISelected>`
+  pointer-events: ${(props) => (props.isSelectedMonth ? 'auto' : 'none')};
+  padding: 4px;
+  cursor: pointer;  
+  aspect-ratio: 10/16;
+  border-top: 2px solid #090909;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  flex-direction: column;
+  justify-items: start;
+  align-items: start;
+  background: ${(props) => (props.isSelected ? 'rgba(208, 172, 172, 0.1);' : 'transparent')};
+  transition: all 0.2s ease-in-out;
+  opacity: ${(props) => (props.isSelectedMonth ? '1' : '0.4353')};
   width: 100%;
   height: 100%;
 `

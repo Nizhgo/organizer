@@ -1,9 +1,9 @@
 import React, {useContext, useState} from "react";
-import Card from "../../../../ui/Card";
+import {Card} from "../../../../ui/Card";
 import {DateContext} from "../../../../components/providers/DataContext";
 import {ITask, OrganizerContext} from "../../../../components/providers/OrganizerContext";
 import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
-import {Input, Button} from "antd";
+import {Button, Input} from "antd";
 import {AddElementTitle} from "./style";
 import {FormContainer} from '../sharedUI/style'
 

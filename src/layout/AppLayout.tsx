@@ -1,6 +1,5 @@
 import React from "react";
-import {AppContainer, AppContent, AppWrapper,} from "./style";
-import Card from "../ui/Card";
+import {AppContainer, AppContent, AppWrapper, Card} from "./style";
 import Header from "./header/Header";
 
 type Props = {
