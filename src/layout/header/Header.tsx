@@ -1,7 +1,6 @@
 import React from "react";
 import {HeaderContainer} from "./style";
 import Logo from '../../assets/images/Logo.svg'
-import {Badge} from "antd";
 
 const Header = () => {
     return (

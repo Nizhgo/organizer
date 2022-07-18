@@ -1,6 +1,3 @@
-
-
-
 const GetArrayOfDaysForMonths = (nowDate: Date) => {
     const firstDayOfMonth = new Date(nowDate.getFullYear(), nowDate.getMonth(), 1);
     const lastDayOfMonth = new Date(nowDate.getFullYear(), nowDate.getMonth() + 1, 0);

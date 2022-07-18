@@ -7,8 +7,7 @@ const DateProvider = ({children}: any) => {
     // date shift
     const [dateShift, setDateShift] = useState<Date | null>(null);
     useEffect(() => {
-        if (dateShift)
-        {
+        if (dateShift) {
             setSelectedDay(dateShift);
         }
     }, [dateShift]);

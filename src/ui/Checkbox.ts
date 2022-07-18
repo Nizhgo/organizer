@@ -1,4 +1,4 @@
-import {Radio, Checkbox as CheckboxA} from "antd";
+import {Checkbox as CheckboxA} from "antd";
 import styled from "styled-components";
 
 const Checkbox = styled(CheckboxA)`

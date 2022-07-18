@@ -1,14 +1,12 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, {useContext, useState} from "react";
 import {Card} from "../../../../ui/Card";
 import Checkbox from "../../../../ui/Checkbox";
-import {Button, Input, Popover, message, Popconfirm} from 'antd';
+import {message, Popconfirm, Popover} from 'antd';
 import {ITask, OrganizerContext} from "../../../../components/providers/OrganizerContext";
-import {
-    MoreOutlined,
-} from '@ant-design/icons'
+import {MoreOutlined,} from '@ant-design/icons'
 
 import styled from "styled-components";
-import AddElementForm from "../addElementForm/AddElementForm";
+import TaskForm from "../taskForm/TaskForm";
 
 
 const DailyTaskCard = (props: ITask) => {
@@ -17,7 +15,7 @@ const DailyTaskCard = (props: ITask) => {
     const [isEdit, setIsEdit] = useState<boolean>(false);
     const Delete = async () => {
         DeleteTask(props);
-            message.success('Задача удалена!');
+        message.success('Задача удалена!');
     };
 
 
@@ -32,12 +30,11 @@ const DailyTaskCard = (props: ITask) => {
         }
     }
 
-    const PopoverMenu = () =>
-    {
+    const PopoverMenu = () => {
         return (
             <div>
                 <Popconfirm title="Вы уверены?" okText={'Да, удалить'} cancelText={'Нет'} onConfirm={Delete}>
-                <PopoverItem style={{color: 'indianred'}}>Удалить</PopoverItem>
+                    <PopoverItem style={{color: 'indianred'}}>Удалить</PopoverItem>
                 </Popconfirm>
                 <PopoverItem onClick={Edit}>Редактировать</PopoverItem>
             </div>
@@ -47,7 +44,7 @@ const DailyTaskCard = (props: ITask) => {
     return (
         <>
             {isEdit ?
-                <AddElementForm setIsEdit={setIsEdit} task={props}/>
+                <TaskForm setIsEdit={setIsEdit} task={props}/>
                 :
                 <Card>
                     <DailyTaskWrapper>
@@ -68,52 +65,54 @@ const DailyTaskCard = (props: ITask) => {
                     </DailyTaskWrapper>
                 </Card>
             }
-    </>
+        </>
     )
-    }
+}
 const DailyTaskWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 `
 
 const DailyTaskGridContainer = styled.div`
   display: grid;
   width: 100%;
   text-align: start;
-    grid-template-columns: 32px auto 32px;
-    grid-gap: 6px;
+  grid-template-columns: 32px auto 32px;
+  grid-gap: 6px;
 `
 
 const PopoverItem = styled.p`
-    cursor: pointer;
+  cursor: pointer;
   color: black;
-    :hover {
-        color: #6024de;
-    }
-    animation: 0.5s ease-in-out;
+
+  :hover {
+    color: #6024de;
+  }
+
+  animation: 0.5s ease-in-out;
 `
 const IconContainer = styled.div`
-    display: flex;
-    align-items: start;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    `
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+`
 
 
-const TaskInfoContainer = styled.div<{isComplete: boolean}>`
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: center;
-    width: 100%;
-    gap: 0.5em;
-    text-decoration: ${props => props.isComplete ? 'line-through' : 'none'};
-    `
+const TaskInfoContainer = styled.div<{ isComplete: boolean }>`
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  width: 100%;
+  gap: 0.5em;
+  text-decoration: ${props => props.isComplete ? 'line-through' : 'none'};
+`
 
 const TaskTitle = styled.h6`
   font-family: 'Raleway', sans-serif;
@@ -132,9 +131,6 @@ const TaskBody = styled.p`
   line-height: 113%;
   color: #515151;
 `
-
-
-
 
 
 export default DailyTaskCard;

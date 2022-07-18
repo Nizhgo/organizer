@@ -44,7 +44,6 @@ const WeekDayTitleWrapper = styled.div`
   `
 
 
-
 const WeekDayTitle = styled.h5`
   font-family: 'Raleway', sans-serif;
   font-style: normal;
@@ -54,6 +53,4 @@ const WeekDayTitle = styled.h5`
 `
 
 
-
-
-export { CalendarContainer, WeekDayTitleWrapper, WeekDayTitle};
+export {CalendarContainer, WeekDayTitleWrapper, WeekDayTitle};

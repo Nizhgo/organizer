@@ -7,7 +7,6 @@ const RightPanelContainer = styled.div<IRightPanelContainerProps>`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: 1em;
   height: 100%;
   width: 100%;
   border-left: 3px solid #f1f1f1;
@@ -21,26 +20,37 @@ const RightPanelContainer = styled.div<IRightPanelContainerProps>`
     right: 0;
     display: ${(props) => (props.isShown ? 'block' : 'none')};
   }
+`
 
-
+const TasksContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: start;
+  justify-content: start;
+  gap: 1em;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
 `
 const DayTitle = styled.h6`
   font-family: "Lineatura", sans-serif;
   margin-top: 1em;
   font-size: 36px;
-  max-width: 200px;
   line-height: 100%;
   color: #DA654D;
 `
 
 const ToDoListTitle = styled.p`
-  margin-top: 3.783em;
+  margin-top: 1em;
   font-size: 20px;
   line-height: 98.9%;
   color: #777777;
 `
 
 const CloseIconContainer = styled.div`
+  z-index: 10000000;;
   position: fixed;
   top: 1.5em;
   right: 1.5em;
@@ -57,4 +67,4 @@ interface IRightPanelContainerProps {
     isShown: boolean;
 }
 
-export {RightPanelContainer, DayTitle, ToDoListTitle, CloseIconContainer};
+export {RightPanelContainer, DayTitle, ToDoListTitle, CloseIconContainer, TasksContainer};

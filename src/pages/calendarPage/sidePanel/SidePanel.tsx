@@ -1,13 +1,13 @@
 import React, {useContext, useEffect, useMemo, useState} from "react";
 import {getWeekDay} from "../../../scripts/GetWeekDayTitle";
-import AddElementForm from "./addElementForm/AddElementForm";
+import TaskForm from "./taskForm/TaskForm";
 import {Button} from "antd";
 import DailyTaskCard from "./dailyTaskCard/DailyTaskCard";
 import {ITask, OrganizerContext} from "../../../components/providers/OrganizerContext";
 import {DateContext} from "../../../components/providers/DataContext";
 import {GetMonthTitleInCase} from "../../../scripts/GetMonthTitle";
 import CloseIcon from "../../../assets/images/close_FILL0_wght400_GRAD0_opsz48.svg"
-import {CloseIconContainer, DayTitle, RightPanelContainer, ToDoListTitle} from "./style";
+import {CloseIconContainer, DayTitle, RightPanelContainer, TasksContainer, ToDoListTitle} from "./style";
 
 
 const SidePanel = () => {
@@ -23,7 +23,8 @@ const SidePanel = () => {
 
     const month = useMemo(() => GetMonthTitleInCase(selectedDay), [selectedDay]);
 
-    const dayTitle = useMemo(() => `${day} ${month}, ${getWeekDay(selectedDay)}`, [day, month, selectedDay]);
+    const dayAndMonth = useMemo(() => `${day} ${month},`, [day, month]);
+    const weekDay = useMemo(() => getWeekDay(selectedDay), [selectedDay]);
 
 
     useEffect(() => {
@@ -46,15 +47,16 @@ const SidePanel = () => {
                 <img src={CloseIcon} alt={'закрыть'}/>
             </CloseIconContainer>
             <DayTitle>
-                {dayTitle}
+                {dayAndMonth}<br/>{weekDay}
             </DayTitle>
-            {isAddingNewElement ? <AddElementForm  setIsEdit={setIsAddingNewElement}/> : <Button onClick={() => setIsAddingNewElement(true)}>Добавить новое дело</Button>}
             <ToDoListTitle>
                 Список дел:
             </ToDoListTitle>
             {
                 toDoList.length > 0 ?
-                    <>
+                    <TasksContainer>
+                        {isAddingNewElement ? <TaskForm setIsEdit={setIsAddingNewElement}/> :
+                            <Button onClick={() => setIsAddingNewElement(true)}>Добавить новое дело</Button>}
                         {toDoList.map((obj) => {
                             return <DailyTaskCard
                                 id={obj.id}
@@ -66,7 +68,7 @@ const SidePanel = () => {
                             />
 
                         })}
-                    </>
+                    </TasksContainer>
                     :
                     <>
                         <p
@@ -77,7 +79,7 @@ const SidePanel = () => {
             }
         </RightPanelContainer>
 
-    ), [isShow, dayTitle, toDoList, isAddingNewElement]);
+    ), [isAddingNewElement, isShow, toDoList, dayAndMonth, weekDay]);
 }
 
 

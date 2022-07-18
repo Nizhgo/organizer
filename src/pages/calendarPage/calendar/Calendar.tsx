@@ -1,14 +1,16 @@
-import React, {useCallback, useContext, useEffect, useMemo, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {DateContext} from "../../../components/providers/DataContext";
 import GetArrayOfDaysForMonths from "../../../scripts/GetArrayOfDaysForMonths";
-import {CalendarContainer, WeekDayTitleWrapper, WeekDayTitle} from "./style";
+import {CalendarContainer, WeekDayTitle, WeekDayTitleWrapper} from "./style";
 import {CalendarItem} from "./calendarItem/CalendarItem";
 
 const Calendar = () => {
     const {selectedDay, dateShift} = useContext(DateContext);
     const [arrayOfDays, setArrayOfDays] = useState<Date[]>(GetArrayOfDaysForMonths(selectedDay));
     const daysName = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
-    useEffect(() => {setArrayOfDays(GetArrayOfDaysForMonths(selectedDay));}, [dateShift, selectedDay]);
+    useEffect(() => {
+        setArrayOfDays(GetArrayOfDaysForMonths(selectedDay));
+    }, [dateShift, selectedDay]);
     return (
         <>
             <CalendarContainer>
@@ -29,7 +31,6 @@ const Calendar = () => {
     );
 
 }
-
 
 
 export default Calendar;

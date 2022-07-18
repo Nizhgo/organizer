@@ -5,6 +5,6 @@ const HeaderContainer = styled.div`
   margin-top: 3em;
   display: flex;
   justify-content: space-between;
-    margin-inline: 32px`;
+  margin-inline: 32px`;
 
 export {HeaderContainer};

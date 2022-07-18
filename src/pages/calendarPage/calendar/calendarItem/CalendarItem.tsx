@@ -1,11 +1,10 @@
 import React, {memo, useContext, useEffect, useMemo, useState} from "react";
-import {getShortWeekDay, getWeekDay} from "../../../../scripts/GetWeekDayTitle";
 import {DateContext} from "../../../../components/providers/DataContext";
 import {IDayElement} from "./interfaces";
-import {Date, DayElementContainer, DayElementLine, DayElementWrapper, WeekDayTitle,} from "./style";
+import {Date, DayElementContainer, DayElementWrapper,} from "./style";
 import useViewport from "../../../../hooks/useViewport";
-import {OrganizerContext, ITask} from "../../../../components/providers/OrganizerContext";
-import { Badge } from 'antd';
+import {ITask, OrganizerContext} from "../../../../components/providers/OrganizerContext";
+import {Badge} from 'antd';
 import styled from "styled-components";
 
 
@@ -32,7 +31,8 @@ const CalendarItem = memo((props: IDayElement) => {
     }, []);
 
     return (
-        <DayElementWrapper key={date.getTime()} onClick={() => setSelectedDay(date)} isSelected={isSelected} isSelectedMonth={isSelectedMonth}>
+        <DayElementWrapper key={date.getTime()} onClick={() => setSelectedDay(date)} isSelected={isSelected}
+                           isSelectedMonth={isSelectedMonth}>
             <DayBadgeContainer>
                 {notCompletedTasksCount > 0 && <DayBadge count={notCompletedTasksCount} size={'small'}/>}
             </DayBadgeContainer>
@@ -43,9 +43,10 @@ const CalendarItem = memo((props: IDayElement) => {
             </DayElementContainer>
             {!isShort &&
                 <TasksContainer>
-                {taskCount > 0 ? <TaskTitle isDone={tasks[0].isDone}>{tasks[0].title}</TaskTitle> : ''}
-                {taskCount > 1 ? <TaskTitle isDone={tasks[1].isDone}>{tasks[1].title}</TaskTitle> : ''}
-                {taskCount > 2 ? <TaskTitle style={{fontSize: '8px', textDecoration: 'underline'}}>И еще {taskCount - 2}...</TaskTitle> : ''}
+                    {taskCount > 0 ? <TaskTitle isDone={tasks[0].isDone}>{tasks[0].title}</TaskTitle> : ''}
+                    {taskCount > 1 ? <TaskTitle isDone={tasks[1].isDone}>{tasks[1].title}</TaskTitle> : ''}
+                    {taskCount > 2 ? <TaskTitle style={{fontSize: '8px', textDecoration: 'underline'}}>И
+                        еще {taskCount - 2}...</TaskTitle> : ''}
                 </TasksContainer>
             }
 
@@ -65,31 +66,31 @@ const DayBadge = styled(Badge)`
 `
 
 const DayBadgeContainer = styled.div`
-    margin-top: 5px;
-    width: 100%;
-    height: 18px;
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    `
+  margin-top: 5px;
+  width: 100%;
+  height: 18px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+`
 
 const TasksContainer = styled.div`
-    margin-top: 3em;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start;
-    gap:  1em;
-    `
+  margin-top: 3em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 1em;
+`
 
-const TaskTitle = styled.p<{isDone?: boolean}>`
-    font-family: 'Raleway', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 98.9%;
-    color: #858585;
-    text-decoration: ${props => props.isDone ? 'line-through' : 'none'};
+const TaskTitle = styled.p<{ isDone?: boolean }>`
+  font-family: 'Raleway', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 98.9%;
+  color: #858585;
+  text-decoration: ${props => props.isDone ? 'line-through' : 'none'};
 `
 
 
