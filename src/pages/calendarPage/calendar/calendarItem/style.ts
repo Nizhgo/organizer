@@ -57,6 +57,11 @@ const DayElementWrapper = styled.div<ISelected>`
   background: ${(props) => (props.isSelected ? 'rgba(208, 172, 172, 0.1);' : 'transparent')};
   transition: all 0.2s ease-in-out;
   opacity: ${(props) => (props.isSelectedMonth ? '1' : '0.4353')};
+  scale: ${(props) => (props.isSelected ? '1.1' : '1')};
+  border-radius: 0 0 10px 10px;
+  :hover {
+  background: rgba(208, 172, 172, 0.05);
+    }
   width: 100%;
   height: 100%;
 `

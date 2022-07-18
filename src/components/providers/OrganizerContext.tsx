@@ -7,9 +7,7 @@ export interface ITask {
     title: string,
     body: string,
     timestamp: Date,
-    isDone?: boolean
-    startTime?: Date,
-    endTime?: Date
+    isDone: boolean
 }
 
 export const OrganizerProvider = ({children}: any) => {
@@ -46,6 +44,11 @@ export const OrganizerProvider = ({children}: any) => {
         setTasks(newTasks);
     }
 
+    const CompleteTask = (task: ITask) => {
+        const newTasks = tasks.map(t => t.id === task.id ? {...t, isDone: !t.isDone} : t);
+        setTasks(newTasks);
+    }
+
     const GetTasks = () => {
         return tasks;
     }
@@ -57,7 +60,7 @@ export const OrganizerProvider = ({children}: any) => {
 
     return (
         <OrganizerContext.Provider value={{
-            AddTask, DeleteTask, UpdateTask, GetTasks, GetTaskByDayMothAndYear
+            AddTask, DeleteTask, UpdateTask, GetTasks, GetTaskByDayMothAndYear, CompleteTask
         }}>
             {children}
         </OrganizerContext.Provider>

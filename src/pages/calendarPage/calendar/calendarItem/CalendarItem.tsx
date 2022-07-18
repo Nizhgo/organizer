@@ -4,7 +4,7 @@ import {DateContext} from "../../../../components/providers/DataContext";
 import {IDayElement} from "./interfaces";
 import {Date, DayElementContainer, DayElementLine, DayElementWrapper, WeekDayTitle,} from "./style";
 import useViewport from "../../../../hooks/useViewport";
-import {OrganizerContext} from "../../../../components/providers/OrganizerContext";
+import {OrganizerContext, ITask} from "../../../../components/providers/OrganizerContext";
 import { Badge } from 'antd';
 import styled from "styled-components";
 
@@ -15,8 +15,10 @@ const CalendarItem = memo((props: IDayElement) => {
     const {selectedDay, setSelectedDay, dateShift} = useContext(DateContext);
     const isSelectedMonth = useMemo(() => date.getMonth() === selectedDay.getMonth(), [date, selectedDay]);
     const {GetTaskByDayMothAndYear} = useContext(OrganizerContext);
-    const Tasks = GetTaskByDayMothAndYear(date);
-    const TasksCount = Tasks.length;
+    const tasks = GetTaskByDayMothAndYear(date);
+    //not completed tasks count
+    const taskCount = useMemo(() => tasks.length, [tasks]);
+    const notCompletedTasksCount = useMemo(() => tasks.filter((task: ITask) => !task.isDone).length, [tasks]);
     const isSelected = useMemo(() => date.getTime() === selectedDay.getTime(), [date, selectedDay]);
     const [isShort, setIsShort] = useState<boolean>(false);
     const {width} = useViewport();
@@ -32,7 +34,7 @@ const CalendarItem = memo((props: IDayElement) => {
     return (
         <DayElementWrapper key={date.getTime()} onClick={() => setSelectedDay(date)} isSelected={isSelected} isSelectedMonth={isSelectedMonth}>
             <DayBadgeContainer>
-                {TasksCount > 0 && <DayBadge count={TasksCount} size={'small'}/>}
+                {notCompletedTasksCount > 0 && <DayBadge count={notCompletedTasksCount} size={'small'}/>}
             </DayBadgeContainer>
             <DayElementContainer isSelected={isSelected}>
                 <Date isSelected={isSelected}>{date.toLocaleString('ru', {
@@ -41,9 +43,9 @@ const CalendarItem = memo((props: IDayElement) => {
             </DayElementContainer>
             {!isShort &&
                 <TasksContainer>
-                {TasksCount > 0 ? <TaskTitle>{Tasks[0].title}</TaskTitle> : ''}
-                {TasksCount > 1 ? <TaskTitle>{Tasks[1].title}</TaskTitle> : ''}
-                {TasksCount > 2 ? <TaskTitle style={{fontSize: '8px', textDecoration: 'underline'}}>И еще {TasksCount - 2}...</TaskTitle> : ''}
+                {taskCount > 0 ? <TaskTitle isDone={tasks[0].isDone}>{tasks[0].title}</TaskTitle> : ''}
+                {taskCount > 1 ? <TaskTitle isDone={tasks[1].isDone}>{tasks[1].title}</TaskTitle> : ''}
+                {taskCount > 2 ? <TaskTitle style={{fontSize: '8px', textDecoration: 'underline'}}>И еще {taskCount - 2}...</TaskTitle> : ''}
                 </TasksContainer>
             }
 
@@ -80,12 +82,15 @@ const TasksContainer = styled.div`
     gap:  1em;
     `
 
-const TaskTitle = styled.p`
+const TaskTitle = styled.p<{isDone?: boolean}>`
     font-family: 'Raleway', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
     line-height: 98.9%;
-    color: #858585;`
+    color: #858585;
+    text-decoration: ${props => props.isDone ? 'line-through' : 'none'};
+`
+
 
 export {CalendarItem};

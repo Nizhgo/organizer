@@ -7,6 +7,7 @@ const CalendarContainer = styled.div`
   row-gap: 2.72234em;
   column-gap: 1.4em;
   margin-top: 4.123em;
+  animation: fadeIn 0.5s ease-in-out;
 
   @media (max-width: 1200px) {
     column-gap: 1.32em;
@@ -19,8 +20,7 @@ const CalendarContainer = styled.div`
   @media (max-width: 756px) {
     column-gap: 0.3em;
   }
-
-  animation: fadeIn 0.5s ease-in-out;
+  
     @keyframes fadeIn {
         from {
             opacity: 0;

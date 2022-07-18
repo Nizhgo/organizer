@@ -48,6 +48,7 @@ const SidePanel = () => {
             <DayTitle>
                 {dayTitle}
             </DayTitle>
+            {isAddingNewElement ? <AddElementForm  setIsEdit={setIsAddingNewElement}/> : <Button onClick={() => setIsAddingNewElement(true)}>Добавить новое дело</Button>}
             <ToDoListTitle>
                 Список дел:
             </ToDoListTitle>
@@ -60,7 +61,10 @@ const SidePanel = () => {
                                 title={obj.title}
                                 body={obj.body}
                                 timestamp={obj.timestamp}
-                                key={obj.id}/>
+                                key={obj.id}
+                                isDone={obj.isDone || false}
+                            />
+
                         })}
                     </>
                     :

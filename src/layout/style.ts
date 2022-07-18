@@ -13,7 +13,6 @@ const Card = styled.div`
 `
 
 const AppContainer = styled.div`
-  max-width: 1324px;
   width: 100%;
   margin-inline: auto;
   display: flex;
@@ -32,8 +31,8 @@ const AppWrapper = styled.div`
 const AppContent = styled.div`
   margin-top: 3em;
   display: grid;
-  grid-template-columns: 8fr 2.5fr;
-    grid-gap: 2em;
+  grid-template-columns: 7.5fr 3fr;
+    grid-gap: 1em;
   @media (max-width: 968px) {
     grid-template-columns: 1fr;
   }

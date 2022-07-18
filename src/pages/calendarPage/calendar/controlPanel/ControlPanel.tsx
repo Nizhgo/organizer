@@ -33,7 +33,6 @@ const ControlPanel = () => {
                 <Tooltip title={'Следующий месяц'}>
                     <Button shape="circle" type={'text'} size={'small'} icon={<RightOutlined />} onClick={setNextMonth}/>
                 </Tooltip>
-                <DatePicker bordered={false} suffixIcon={<CalendarOutlined/>} placeholder={''}/>
             </NavControls>
         </ControlPanelWrapper>
     )
