@@ -38,4 +38,7 @@ const TextArea = styled.textarea`
   }
 `
 
-export {Input, TextArea};
+export {
+	Input,
+	TextArea
+};

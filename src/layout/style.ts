@@ -5,7 +5,7 @@ const Card = styled.div`
   border-radius: 8px;
   background: #F7F6F9;
   display: block;
-  
+
 
   @media (max-width: 968px) {
     margin-top: 0;
@@ -32,10 +32,15 @@ const AppContent = styled.div`
   margin-top: 3em;
   display: grid;
   grid-template-columns: 7.5fr 3fr;
-    grid-gap: 1em;
+  grid-gap: 1em;
   @media (max-width: 968px) {
     grid-template-columns: 1fr;
   }
 `
 
-export {AppContainer, AppWrapper, Card, AppContent};
+export {
+	AppContainer,
+	AppWrapper,
+	Card,
+	AppContent
+};

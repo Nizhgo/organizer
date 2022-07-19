@@ -1,10 +1,10 @@
 export interface ISelected {
-    isSelected?: boolean
-    isSelectedMonth?: boolean
+	isSelected?: boolean
+	isSelectedMonth?: boolean
 }
 
 export interface IDayElement {
-    date: Date;
-    selected?: Date;
+	date: Date;
+	selected?: Date;
 }
 

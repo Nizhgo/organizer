@@ -25,4 +25,7 @@ const AddElementBtn = styled(SmallButton)`
   }
 `
 
-export {SmallButton, AddElementBtn}
+export {
+	SmallButton,
+	AddElementBtn
+}

@@ -38,4 +38,19 @@ const NavControls = styled.div`
   width: 100%;
 `
 
-export {ControlPanelWrapper, MonthTitle, NavControls};
+const IconContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+`
+
+export {
+	ControlPanelWrapper,
+	MonthTitle,
+	NavControls,
+	IconContainer
+};

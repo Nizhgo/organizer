@@ -27,7 +27,7 @@ const ButtonsContainer = styled.div`
 
 const SubmitButton = styled.button`
   font-family: 'Raleway', sans-serif;
-    font-style: normal;
+  font-style: normal;
   padding: 8px 14px;
   gap: 10px;
   background: #672EE3;
@@ -45,6 +45,12 @@ const SubmitButton = styled.button`
   }
 `
 
+const FormContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.44em;
+`
+
 const TaskTitle = styled.input`
   width: 100%;
   font-size: 14px;
@@ -52,9 +58,9 @@ const TaskTitle = styled.input`
   font-family: "Raleway", sans-serif;
   font-style: normal;
   font-weight: 600;
-    color: #181818;
-    height: auto;
-  
+  color: #181818;
+  height: auto;
+
 `
 
 const TaskDescription = styled.textarea`
@@ -98,12 +104,13 @@ const TaskTitleWrapper = styled.div`
 `
 
 export {
-    TaskTitleWrapper,
-    TaskTitle,
-    TaskDescription,
-    TaskDescriptionWrapper,
-    ButtonsContainer,
-    SubmitButton,
-    CancelButton,
-    ErrorMessage
+	TaskTitleWrapper,
+	TaskTitle,
+	TaskDescription,
+	TaskDescriptionWrapper,
+	ButtonsContainer,
+	SubmitButton,
+	CancelButton,
+	ErrorMessage,
+	FormContainer,
 };

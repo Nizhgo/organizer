@@ -19,4 +19,7 @@ const PageMain = styled.div`
 `
 
 
-export {OverviewContainer, PageMain};
+export {
+	OverviewContainer,
+	PageMain
+};

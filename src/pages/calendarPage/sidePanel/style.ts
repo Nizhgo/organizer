@@ -64,7 +64,13 @@ const CloseIconContainer = styled.div`
 `
 
 interface IRightPanelContainerProps {
-    isShown: boolean;
+	isShown: boolean;
 }
 
-export {RightPanelContainer, DayTitle, ToDoListTitle, CloseIconContainer, TasksContainer};
+export {
+	RightPanelContainer,
+	DayTitle,
+	ToDoListTitle,
+	CloseIconContainer,
+	TasksContainer
+};

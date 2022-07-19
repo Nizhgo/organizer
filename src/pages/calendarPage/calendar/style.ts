@@ -21,29 +21,29 @@ const CalendarContainer = styled.div`
   @media (max-width: 756px) {
     column-gap: 0.3em;
   }
-  
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-        }
-        to {
-            opacity: 1;
-        }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
     }
-  
+    to {
+      opacity: 1;
+    }
+  }
+
 `
 const WeekDayTitleWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: 100%;
-    box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
 
 
-  
-  `
+
+`
 
 
 const WeekDayTitle = styled.h5`
@@ -55,4 +55,8 @@ const WeekDayTitle = styled.h5`
 `
 
 
-export {CalendarContainer, WeekDayTitleWrapper, WeekDayTitle};
+export {
+	CalendarContainer,
+	WeekDayTitleWrapper,
+	WeekDayTitle
+};

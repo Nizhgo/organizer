@@ -1,5 +1,5 @@
-import styled from "styled-components";
 import {Tooltip} from "antd";
+import styled from "styled-components";
 
 const TooltipStyled = styled(Tooltip)`
   font-family: Raleway, sans-serif;

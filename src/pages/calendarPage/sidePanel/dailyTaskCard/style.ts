@@ -1,52 +1,75 @@
 import styled from "styled-components";
 
-const CardTitle = styled.h6`
-  font-family: 'Raleway', sans-serif;
-  font-style: normal;
-  font-weight: 800;
-  font-size: 15px;
-  line-height: 98.9%;
-  color: #323232;
-`
-
-const TaskContainer = styled.div`
+const DailyTaskWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.4em;
-  border-radius: 5px;
-`
-
-const DailyTaskMenuIcon = styled.img`
-  height: 18px;
-  width: 18px;
-  border-radius: 24px;
-  transition: all 1s ease-in-out;
-
-  :hover {
-    background-color: #efefef;
-  }
-
-`
-
-const CardBody = styled.p`
-  padding-top: 10px;
-  font-family: 'Raleway', sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 98.9%;
-  color: #858585;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 `
 
 const DailyTaskGridContainer = styled.div`
   display: grid;
-  grid-template-columns: 8fr 1fr;
-
+  width: 100%;
+  text-align: start;
+  grid-template-columns: 32px auto 32px;
+  grid-gap: 6px;
 `
 
-const DailyTaskContainer = styled.div`
+const PopoverItem = styled.p`
+  cursor: pointer;
+  color: black;
+
+  :hover {
+    color: #6024de;
+  }
+
+  animation: 0.5s ease-in-out;
+`
+const IconContainer = styled.div`
   display: flex;
-  flex-direction: column`
+  align-items: start;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+`
 
 
-export {CardTitle, TaskContainer, DailyTaskMenuIcon, CardBody, DailyTaskGridContainer, DailyTaskContainer};
+const TaskInfoContainer = styled.div<{ isComplete: boolean }>`
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  width: 100%;
+  gap: 0.5em;
+  text-decoration: ${props => props.isComplete ? 'line-through' : 'none'};
+`
+
+const TaskTitle = styled.h6`
+  font-family: 'Raleway', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 113%;
+  color: #000000;
+`
+
+const TaskBody = styled.p`
+  font-family: 'Raleway', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 113%;
+  color: #515151;
+`
+
+export {
+	DailyTaskWrapper,
+	DailyTaskGridContainer,
+	PopoverItem,
+	IconContainer,
+	TaskInfoContainer,
+	TaskTitle,
+	TaskBody
+};
