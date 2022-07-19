@@ -12,7 +12,6 @@ const Calendar = () => {
         setArrayOfDays(GetArrayOfDaysForMonths(selectedDay));
     }, [dateShift, selectedDay]);
     return (
-        <>
             <CalendarContainer>
                 {
                     daysName.map((day, index) => (
@@ -27,7 +26,6 @@ const Calendar = () => {
                     })
                 }
             </CalendarContainer>
-        </>
     );
 
 }

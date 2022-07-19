@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const CalendarContainer = styled.div`
   width: 100%;
+  box-sizing: border-box;
   grid-template-columns: repeat(7, 1fr);
   display: grid;
   row-gap: 2.72234em;
@@ -38,6 +39,7 @@ const WeekDayTitleWrapper = styled.div`
     align-items: center;
     text-align: center;
     width: 100%;
+    box-sizing: border-box;
 
 
   

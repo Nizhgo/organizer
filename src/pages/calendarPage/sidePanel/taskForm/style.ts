@@ -26,6 +26,8 @@ const ButtonsContainer = styled.div`
 `
 
 const SubmitButton = styled.button`
+  font-family: 'Raleway', sans-serif;
+    font-style: normal;
   padding: 8px 14px;
   gap: 10px;
   background: #672EE3;
@@ -45,6 +47,14 @@ const SubmitButton = styled.button`
 
 const TaskTitle = styled.input`
   width: 100%;
+  font-size: 14px;
+  line-height: 98.9%;
+  font-family: "Raleway", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+    color: #181818;
+    height: auto;
+  
 `
 
 const TaskDescription = styled.textarea`
@@ -79,7 +89,8 @@ const TaskTitleWrapper = styled.div`
   justify-content: center;
   border-radius: 4px;
   width: 100%;
-  height: 40px;
+  min-height: 40px;
+  height: auto;
   font-size: 16px;
   font-weight: 500;
   color: #000000;

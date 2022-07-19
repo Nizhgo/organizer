@@ -45,18 +45,18 @@ const SidePanel = () => {
         <RightPanelContainer isShown={isShow}>
             <CloseIconContainer onClick={() => setIsShow(false)}>
                 <img src={CloseIcon} alt={'закрыть'}/>
-            </CloseIconContainer>
+                            </CloseIconContainer>
             <DayTitle>
                 {dayAndMonth}<br/>{weekDay}
             </DayTitle>
+            {isAddingNewElement ? <TaskForm setIsEdit={setIsAddingNewElement}/> :
+                <Button onClick={() => setIsAddingNewElement(true)}>Добавить задачу</Button>}
             <ToDoListTitle>
                 Список дел:
             </ToDoListTitle>
             {
                 toDoList.length > 0 ?
                     <TasksContainer>
-                        {isAddingNewElement ? <TaskForm setIsEdit={setIsAddingNewElement}/> :
-                            <Button onClick={() => setIsAddingNewElement(true)}>Добавить новое дело</Button>}
                         {toDoList.map((obj) => {
                             return <DailyTaskCard
                                 id={obj.id}
