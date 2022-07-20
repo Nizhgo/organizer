@@ -34,7 +34,6 @@ const DayElementWrapper = styled.div<ISelected>`
   pointer-events: ${(props) => (props.isSelectedMonth ? 'auto' : 'none')};
   padding: 4px;
   width: 100%;
-  height: 100%;
   box-sizing: border-box;
   cursor: pointer;
   border-top: 2px solid #090909;
