@@ -23,6 +23,7 @@ const RightPanelContainer = styled.div<IRightPanelContainerProps>`
 `
 
 const TasksContainer = styled.div`
+  margin-top: 3em;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;

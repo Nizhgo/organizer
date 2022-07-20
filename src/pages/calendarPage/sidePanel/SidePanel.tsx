@@ -1,4 +1,3 @@
-import {Button} from "antd";
 import React, {
 	useContext,
 	useEffect,
@@ -21,6 +20,7 @@ import {
 	TasksContainer,
 	ToDoListTitle
 } from "./style";
+import Button from "../../../ui/Button/Button";
 import TaskForm from "../../../components/taskForm/TaskForm";
 
 
@@ -63,14 +63,14 @@ const SidePanel = () => {
 			<DayTitle>
 				{dayAndMonth}<br/>{weekDay}
 			</DayTitle>
-			{isAddingNewElement ? <TaskForm setIsEdit={setIsAddingNewElement}/> :
-				<Button onClick={() => setIsAddingNewElement(true)}>Добавить задачу</Button>}
 			<ToDoListTitle>
 				Список дел:
 			</ToDoListTitle>
 			{
 				toDoList.length > 0 ?
 					<TasksContainer>
+							{isAddingNewElement ? <TaskForm setIsEdit={setIsAddingNewElement}/> :
+								<Button variant={'submit'} onClick={() => setIsAddingNewElement(true)} style={{marginInline:'auto'}}>Добавить задачу</Button>}
 						{toDoList.map((obj) => {
 							return <DailyTaskCard
 								id={obj.id}

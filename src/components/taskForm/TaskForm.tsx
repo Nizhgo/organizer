@@ -17,15 +17,15 @@ import useYupValidationResolver from "../../hooks/useYupValidationResolver";
 import {Card} from "../../ui/Card";
 import {
 	ButtonsContainer,
-	CancelButton,
 	ErrorMessage,
 	FormContainer,
-	SubmitButton,
 	TaskDescription,
 	TaskDescriptionWrapper,
 	TaskTitle,
 	TaskTitleWrapper,
 } from "./style";
+
+import Button from "../../ui/Button/Button";
 
 
 const schema = object().shape({
@@ -86,8 +86,8 @@ const TaskForm = (props: IAddElementFormProps) => {
 						<ErrorMessage>{}</ErrorMessage>
 					</TaskDescriptionWrapper>
 					<ButtonsContainer>
-						<CancelButton onClick={StopEdit}>Отмена</CancelButton>
-						<SubmitButton type={'submit'}>{isEdit ? 'Сохранить' : 'Добавить'}</SubmitButton>
+						<Button variant={'submit'} type={'submit'} onClick={StopEdit}>Отмена</Button>
+						<Button variant={'cancel'}>{isEdit ? 'Сохранить' : 'Добавить'}</Button>
 					</ButtonsContainer>
 				</FormContainer>
 			</form>

@@ -25,25 +25,7 @@ const ButtonsContainer = styled.div`
   align-items: center;
 `
 
-const SubmitButton = styled.button`
-  font-family: 'Raleway', sans-serif;
-  font-style: normal;
-  padding: 8px 14px;
-  gap: 10px;
-  background: #672EE3;
-  border: 1px solid #756391;
-  border-radius: 8px;
-  color: #fff;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 98.9%;
-  cursor: pointer;
-  box-sizing: border-box;
 
-  :hover {
-    background: #6024de;
-  }
-`
 
 const FormContainer = styled.div`
   display: flex;
@@ -79,15 +61,6 @@ const TaskDescription = styled.textarea`
   box-sizing: border-box;
 `
 
-const CancelButton = styled(SubmitButton)`
-  background: transparent;
-  color: #9D9D9D;
-  border: 1px solid #9D9D9D;
-
-  :hover {
-    background: #D2D2D2;
-  }
-`
 const TaskTitleWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -109,8 +82,6 @@ export {
 	TaskDescription,
 	TaskDescriptionWrapper,
 	ButtonsContainer,
-	SubmitButton,
-	CancelButton,
 	ErrorMessage,
 	FormContainer,
 };
