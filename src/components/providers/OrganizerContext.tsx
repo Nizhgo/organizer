@@ -59,7 +59,9 @@ export const OrganizerProvider = ({children}: any) => {
 	}
 
 	const GetTaskByDayMothAndYear = (day: Date) => {
-		return tasks.filter(t => new Date(t.timestamp).getDate() === day.getDate() && new Date(t.timestamp).getMonth() === day.getMonth() && new Date(t.timestamp).getFullYear() === day.getFullYear());
+		return tasks.filter(t => new Date(t.timestamp).getDate() === day.getDate() &&
+			new Date(t.timestamp).getMonth() === day.getMonth() &&
+			new Date(t.timestamp).getFullYear() === day.getFullYear());
 	}
 
 

@@ -33,8 +33,10 @@ const Date = styled.h3<ISelected>`
 const DayElementWrapper = styled.div<ISelected>`
   pointer-events: ${(props) => (props.isSelectedMonth ? 'auto' : 'none')};
   padding: 4px;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
   cursor: pointer;
-  aspect-ratio: 10/16;
   border-top: 2px solid #090909;
   display: flex;
   flex-direction: column;
@@ -45,13 +47,11 @@ const DayElementWrapper = styled.div<ISelected>`
   opacity: ${(props) => (props.isSelectedMonth ? '1' : '0.4353')};
   scale: ${(props) => (props.isSelected ? '1.1' : '1')};
   border-radius: 0 0 10px 10px;
+  @media {aspect-ratio: 10/16};
 
   :hover {
     background: rgba(208, 172, 172, 0.05);
   }
-
-  width: 100%;
-  height: 100%;
 `
 
 const DayBadge = styled(Badge)`
