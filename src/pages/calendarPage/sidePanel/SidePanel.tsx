@@ -66,12 +66,10 @@ const SidePanel = () => {
 			<ToDoListTitle>
 				Список дел:
 			</ToDoListTitle>
-			{
-				toDoList.length > 0 ?
 					<TasksContainer>
-							{isAddingNewElement ? <TaskForm setIsEdit={setIsAddingNewElement}/> :
-								<Button variant={'submit'} onClick={() => setIsAddingNewElement(true)} style={{marginInline:'auto'}}>Добавить задачу</Button>}
-						{toDoList.map((obj) => {
+						{
+							toDoList.length > 0 ?
+						toDoList.map((obj) => {
 							return <DailyTaskCard
 								id={obj.id}
 								title={obj.title}
@@ -81,16 +79,22 @@ const SidePanel = () => {
 								isDone={obj.isDone || false}
 							/>
 
-						})}
+						})
+							:
+								<p
+									style={{marginTop: '2em', width: '100%', textAlign: 'center'}}>
+									на этот день нет никаких дел!😊
+								</p>
+						}
+						{
+							isAddingNewElement ?
+								<TaskForm
+									setIsEdit={setIsAddingNewElement}
+									/>
+								:
+								<Button variant={'submit'} onClick={() => setIsAddingNewElement(true)} style={{marginInline:'auto'}}>Добавть задачу</Button>
+						}
 					</TasksContainer>
-					:
-					<>
-						<p
-							style={{marginTop: '2em'}}>
-							на этот день нет никаких дел!😊
-						</p>
-					</>
-			}
 		</RightPanelContainer>
 
 	), [isAddingNewElement, isShow, toDoList, dayAndMonth, weekDay]);

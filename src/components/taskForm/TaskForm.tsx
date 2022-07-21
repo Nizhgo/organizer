@@ -86,8 +86,8 @@ const TaskForm = (props: IAddElementFormProps) => {
 						<ErrorMessage>{}</ErrorMessage>
 					</TaskDescriptionWrapper>
 					<ButtonsContainer>
-						<Button variant={'submit'} type={'submit'} onClick={StopEdit}>Отмена</Button>
-						<Button variant={'cancel'}>{isEdit ? 'Сохранить' : 'Добавить'}</Button>
+						<Button variant={'cancel'} type={'submit'} onClick={StopEdit}>Отмена</Button>
+						<Button variant={'submit'}>{isEdit ? 'Сохранить' : 'Добавить'}</Button>
 					</ButtonsContainer>
 				</FormContainer>
 			</form>
