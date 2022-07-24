@@ -10,11 +10,11 @@ import {
 } from "../../../../components/providers/OrganizerContext";
 import {IDayElement} from "./interfaces";
 import {
-	DayElementContainer,
 	Date,
-	DayElementWrapper,
 	DayBadge,
 	DayBadgeContainer,
+	DayElementContainer,
+	DayElementWrapper,
 	TasksContainer,
 	TaskTitle
 } from "./style";
@@ -23,13 +23,13 @@ import {
 const CalendarItem = memo((props: IDayElement) => {
 
 	const {date} = props;
-	const {selectedDay, setSelectedDay} = useContext(DateContext);
-	const isSelectedMonth = useMemo(() => date.getMonth() === selectedDay.getMonth(), [date, selectedDay]);
+	const {selectedDay, setSelectedDay, calendarMonth} = useContext(DateContext);
+	const isSelectedMonth = useMemo(() => date.getMonth() === calendarMonth.getMonth(), [date, calendarMonth]);
 	const {GetTaskByDayMothAndYear} = useContext(OrganizerContext);
 	const tasks = GetTaskByDayMothAndYear(props.date);
 	const taskCount = useMemo(() => tasks.length, [tasks]);
 	const notCompletedTasksCount = useMemo(() => tasks.filter((task: ITask) => !task.isDone).length, [tasks]);
-	const isSelected = useMemo(() => date.getTime() === selectedDay.getTime(), [selectedDay]);
+	const isSelected = useMemo(() => date.getDate() === selectedDay.getDate() && date.getMonth() === selectedDay.getMonth() && date.getFullYear() === selectedDay.getFullYear(), [date, selectedDay]);
 
 	return (
 		<DayElementWrapper key={date.getTime()} onClick={() => setSelectedDay(date)} isSelected={isSelected}
@@ -51,9 +51,6 @@ const CalendarItem = memo((props: IDayElement) => {
 		</DayElementWrapper>
 	)
 });
-
-
-
 
 
 export {CalendarItem};

@@ -13,12 +13,12 @@ import {
 } from "./style";
 
 const Calendar = () => {
-	const {selectedDay, dateShift} = useContext(DateContext);
+	const {selectedDay, calendarMonth} = useContext(DateContext);
 	const [arrayOfDays, setArrayOfDays] = useState<Date[]>(GetArrayOfDaysForMonths(selectedDay));
 	const daysName = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
 	useEffect(() => {
-		setArrayOfDays(GetArrayOfDaysForMonths(selectedDay));
-	}, [dateShift, selectedDay]);
+		setArrayOfDays(GetArrayOfDaysForMonths(calendarMonth));
+	}, [calendarMonth]);
 	return (
 		<CalendarContainer>
 			{
