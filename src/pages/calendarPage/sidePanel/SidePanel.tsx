@@ -5,13 +5,15 @@ import React, {
 	useState
 } from "react";
 import CloseIcon from "../../../assets/images/close_FILL0_wght400_GRAD0_opsz48.svg"
-import {DateContext} from "../../../components/providers/DataContext";
+import TaskForm from "../../../components/taskForm/TaskForm";
+import {DateContext} from "../../../providers/DataContext";
 import {
 	ITask,
 	OrganizerContext
-} from "../../../components/providers/OrganizerContext";
+} from "../../../providers/OrganizerContext";
 import {GetMonthTitleInCase} from "../../../scripts/GetMonthTitle";
 import {getWeekDay} from "../../../scripts/GetWeekDayTitle";
+import Button from "../../../ui/Button/Button";
 import DailyTaskCard from "./dailyTaskCard/DailyTaskCard";
 import {
 	CloseIconContainer,
@@ -20,8 +22,6 @@ import {
 	TasksContainer,
 	ToDoListTitle
 } from "./style";
-import Button from "../../../ui/Button/Button";
-import TaskForm from "../../../components/taskForm/TaskForm";
 
 
 const SidePanel = () => {
@@ -66,9 +66,9 @@ const SidePanel = () => {
 			<ToDoListTitle>
 				Список дел:
 			</ToDoListTitle>
-					<TasksContainer>
-						{
-							toDoList.length > 0 ?
+			<TasksContainer>
+				{
+					toDoList.length > 0 ?
 						toDoList.map((obj) => {
 							return <DailyTaskCard
 								id={obj.id}
@@ -80,21 +80,22 @@ const SidePanel = () => {
 							/>
 
 						})
-							:
-								<p
-									style={{marginTop: '2em', width: '100%', textAlign: 'center'}}>
-									на этот день нет никаких дел!😊
-								</p>
-						}
-						{
-							isAddingNewElement ?
-								<TaskForm
-									setIsEdit={setIsAddingNewElement}
-									/>
-								:
-								<Button variant={'submit'} onClick={() => setIsAddingNewElement(true)} style={{marginInline:'auto'}}>Добавть задачу</Button>
-						}
-					</TasksContainer>
+						:
+						<p
+							style={{marginTop: '2em', width: '100%', textAlign: 'center'}}>
+							на этот день нет никаких дел!😊
+						</p>
+				}
+				{
+					isAddingNewElement ?
+						<TaskForm
+							setIsEdit={setIsAddingNewElement}
+						/>
+						:
+						<Button variant={'submit'} onClick={() => setIsAddingNewElement(true)}
+						        style={{marginInline: 'auto'}}>Добавть задачу</Button>
+				}
+			</TasksContainer>
 		</RightPanelContainer>
 
 	), [isAddingNewElement, isShow, toDoList, dayAndMonth, weekDay]);

@@ -1,9 +1,13 @@
 import React from "react";
-import {SubmitButton, CancelButton} from "./style";
+import {
+	CancelButton,
+	SubmitButton
+} from "./style";
 
 interface IButtonProps {
 	variant: 'submit' | 'cancel';
 }
+
 const Button = (props: IButtonProps & React.HTMLProps<HTMLButtonElement>) => {
 	const {variant, ...rest} = props;
 	switch (variant) {

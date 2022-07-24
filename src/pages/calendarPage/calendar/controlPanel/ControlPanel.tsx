@@ -11,7 +11,7 @@ import React, {
 	useMemo
 } from "react";
 import Now from '../../../../assets/images/now.svg'
-import {DateContext} from "../../../../components/providers/DataContext";
+import {DateContext} from "../../../../providers/DataContext";
 import {GetMonthTitle} from "../../../../scripts/GetMonthTitle";
 import {
 	ControlPanelWrapper,
@@ -21,17 +21,17 @@ import {
 } from './style'
 
 const ControlPanel = () => {
-	const {selectedDay, setDateShift} = useContext(DateContext);
-	const month = useMemo(() => GetMonthTitle(selectedDay), [selectedDay]);
-	const year = useMemo(() => selectedDay.getFullYear(), [selectedDay]);
+	const {setCalendarMonth, calendarMonth} = useContext(DateContext);
+	const month = useMemo(() => GetMonthTitle(calendarMonth), [calendarMonth]);
+	const year = useMemo(() => calendarMonth.getFullYear(), [calendarMonth]);
 	const setNowDate = () => {
-		setDateShift(new Date());
+		setCalendarMonth(new Date());
 	}
 	const setPrevMonth = () => {
-		setDateShift(new Date(selectedDay.getFullYear(), selectedDay.getMonth() - 1, 1));
+		setCalendarMonth(new Date(calendarMonth.getFullYear(), calendarMonth.getMonth() - 1, 1));
 	}
 	const setNextMonth = () => {
-		setDateShift(new Date(selectedDay.getFullYear(), selectedDay.getMonth() + 1, 1));
+		setCalendarMonth(new Date(calendarMonth.getFullYear(), calendarMonth.getMonth() + 1, 1));
 	}
 	return (
 		<ControlPanelWrapper>
@@ -42,7 +42,7 @@ const ControlPanel = () => {
 				</Tooltip>
 				<Tooltip title={'Сейчас'}>
 					<Button shape='circle' type={'text'} size={'small'}
-					        icon={<IconContainer><img src={Now}/></IconContainer>} onClick={setNowDate}/>
+					        icon={<IconContainer><img src={Now} alt={'Now'}/></IconContainer>} onClick={setNowDate}/>
 				</Tooltip>
 				<Tooltip title={'Следующий месяц'}>
 					<Button shape='circle' type={'text'} size={'small'} icon={<RightOutlined/>} onClick={setNextMonth}/>

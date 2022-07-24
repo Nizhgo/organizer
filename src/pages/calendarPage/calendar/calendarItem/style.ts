@@ -96,11 +96,11 @@ const TaskTitle = styled.p<{ isDone?: boolean }>`
 `
 
 export {
-	  DayElementContainer,
-	  Date,
-	  DayElementWrapper,
-	  DayBadge,
-	  DayBadgeContainer,
-	  TasksContainer,
-	  TaskTitle
+	DayElementContainer,
+	Date,
+	DayElementWrapper,
+	DayBadge,
+	DayBadgeContainer,
+	TasksContainer,
+	TaskTitle
 };

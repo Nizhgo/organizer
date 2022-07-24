@@ -3,11 +3,11 @@ import React, {
 	useContext,
 	useMemo
 } from "react";
-import {DateContext} from "../../../../components/providers/DataContext";
+import {DateContext} from "../../../../providers/DataContext";
 import {
 	ITask,
 	OrganizerContext
-} from "../../../../components/providers/OrganizerContext";
+} from "../../../../providers/OrganizerContext";
 import {IDayElement} from "./interfaces";
 import {
 	Date,

@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import DateProvider from "./components/providers/DataContext";
-import {OrganizerProvider} from "./components/providers/OrganizerContext";
 import './index.css';
+import DateProvider from "./providers/DataContext";
+import {OrganizerProvider} from "./providers/OrganizerContext";
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(

@@ -8,13 +8,13 @@ import React, {
 	useContext,
 	useState
 } from "react";
+import TaskForm from "../../../../components/taskForm/TaskForm";
 import {
 	ITask,
 	OrganizerContext
-} from "../../../../components/providers/OrganizerContext";
+} from "../../../../providers/OrganizerContext";
 import {Card} from "../../../../ui/Card";
 import Checkbox from "../../../../ui/Checkbox";
-import TaskForm from "../../../../components/taskForm/TaskForm";
 import {
 	DailyTaskGridContainer,
 	DailyTaskWrapper,

@@ -31,4 +31,7 @@ const CancelButton = styled(SubmitButton)`
   }
 `
 
-export {SubmitButton, CancelButton}
+export {
+	SubmitButton,
+	CancelButton
+}

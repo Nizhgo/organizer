@@ -3,7 +3,7 @@ import React, {
 	useEffect,
 	useState
 } from "react";
-import {DateContext} from "../../../components/providers/DataContext";
+import {DateContext} from "../../../providers/DataContext";
 import GetArrayOfDaysForMonths from "../../../scripts/GetArrayOfDaysForMonths";
 import {CalendarItem} from "./calendarItem/CalendarItem";
 import {

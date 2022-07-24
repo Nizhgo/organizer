@@ -8,12 +8,14 @@ import {
 	object,
 	string
 } from 'yup';
-import {DateContext} from "../providers/DataContext";
+import useYupValidationResolver from "../../hooks/useYupValidationResolver";
+import {DateContext} from "../../providers/DataContext";
 import {
 	ITask,
 	OrganizerContext
-} from "../providers/OrganizerContext";
-import useYupValidationResolver from "../../hooks/useYupValidationResolver";
+} from "../../providers/OrganizerContext";
+
+import Button from "../../ui/Button/Button";
 import {Card} from "../../ui/Card";
 import {
 	ButtonsContainer,
@@ -24,8 +26,6 @@ import {
 	TaskTitle,
 	TaskTitleWrapper,
 } from "./style";
-
-import Button from "../../ui/Button/Button";
 
 
 const schema = object().shape({
