@@ -26,10 +26,13 @@ import {
 
 const SidePanel = () => {
 	const {GetTaskByDayMothAndYear} = useContext(OrganizerContext);
-	const {selectedDay} = useContext(DateContext);
+	const {selectedDay, setSelectedDay} = useContext(DateContext);
 	const [isAddingNewElement, setIsAddingNewElement] = useState<boolean>(false);
 	const [toDoList, setToDoList] = useState<ITask[]>(GetTaskByDayMothAndYear(selectedDay));
 	const [isShow, setIsShow] = useState<boolean>(false);
+	const onClose = () => {
+		setIsShow(false);
+	}
 
 	const day = useMemo(() => selectedDay.toLocaleString('ru', {
 		day: 'numeric'
@@ -57,7 +60,7 @@ const SidePanel = () => {
 
 	return useMemo(() => (
 		<RightPanelContainer isShown={isShow}>
-			<CloseIconContainer onClick={() => setIsShow(false)}>
+			<CloseIconContainer onClick={onClose}>
 				<img src={CloseIcon} alt={'закрыть'}/>
 			</CloseIconContainer>
 			<DayTitle>
