@@ -9,13 +9,13 @@ const RightPanelContainer = styled.div<IRightPanelContainerProps>`
   flex-direction: column;
   height: 100%;
   width: 100%;
-  border-left: 3px solid #f1f1f1;
+  border-left: 3px solid #e8e7ec;
   @media (max-width: 968px) {
     z-index: 1;
     width: 100%;
     height: 100%;
     position: fixed;
-    background: #fff;
+    background: #F7F6F9;
     top: 0;
     right: 0;
     display: ${(props) => (props.isShown ? 'block' : 'none')};
@@ -31,7 +31,7 @@ const TasksContainer = styled.div`
   justify-content: start;
   gap: 1em;
   width: 100%;
-  height: 100%;
+  height: auto;
   overflow-y: auto;
   overflow-x: hidden;
 `
